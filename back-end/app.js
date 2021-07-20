@@ -19,9 +19,9 @@ app.get("/", (req, res) => {
 /////////////////////////////////////
 const db = require("./db/dbConfig.js");
 
-app.get("/test", async (req, res) => {
+app.get("/games", async (req, res) => {
   try {
-    const allDays = await db.any("SELECT * FROM test");
+    const allDays = await db.any("SELECT * FROM games");
     res.json(allDays);
   } catch (err) {
     res.json(err);
