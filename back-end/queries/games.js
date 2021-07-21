@@ -5,7 +5,7 @@ const getAllGames = async () => {
     const allGames = await db.any("SELECT * FROM games");
     return allGames;
   } catch (err) {
-    res.json(err);
+    console.log(err);
   }
 };
 const getGame = async (id) => {
