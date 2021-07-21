@@ -9,4 +9,67 @@ const getAllGames = async () => {
   }
 };
 
-module.exports = { getAllGames };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module.exports = { 
+  getAllGames, 
+  getGame, 
+  createGame, 
+  updateGame, 
+  deleteGame  };
