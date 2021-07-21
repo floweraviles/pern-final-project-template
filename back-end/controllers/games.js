@@ -17,7 +17,11 @@ games.get("/", async (req, res) => {
 
 
 
-
+games.post("/", async (req, res) => {
+  const newGame = req.body;
+  const result = await createGame(newGame)
+  res.json(result);
+});
 
 
 
