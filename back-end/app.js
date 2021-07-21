@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const gamesController = require("./controllers/games")
 
 // CONFIGURATION
 const app = express();
@@ -9,28 +10,22 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
+//GAMES ROUTE
+app.use("/games", gamesController);
+
 // ROUTES
 app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
-const db = require("./db/dbConfig.js");
 
-app.get("/games", async (req, res) => {
-  try {
-    const allDays = await db.any("SELECT * FROM games");
-    res.json(allDays);
-  } catch (err) {
-    res.json(err);
-  }
-});
 
-/////////////////////////////////////
-// REMOVE AFTER SUCCESSFUL DEPLOYMENT
-/////////////////////////////////////
+//404
+app.get("*", (req, res) => {
+  res.status(404).send("Page Not Found")
+})
+
+
 
 // EXPORT
 module.exports = app;
