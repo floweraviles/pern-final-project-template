@@ -57,7 +57,11 @@ games.get("/", async (req, res) => {
 
 
 
-
+games.delete("/:id", async (req, res) => {
+    const { id } = req.params
+    const deletedGame = await deleteGame(id)
+    res.json({success: true, payload: deletedGame})
+})
 
 
 
