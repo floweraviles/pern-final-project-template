@@ -1,26 +1,43 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Edit from "./Pages/Edit";
+import FourOFour from "./Pages/FourOFour";
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+
+import NavBar from "./Components/NavBar";
 
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
+  
   return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+    <div className="App">
+      <Router>
+        <NavBar />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/games">
+              <Index />
+            </Route>
+            <Route path="/games/new">
+              <New />
+            </Route>
+            <Route exact path="/games/:id">
+              <Show />
+            </Route>
+            <Route path="/games/:id/edit">
+              <Edit />
+            </Route>
+            <Route path="*">
+              <FourOFour />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }
