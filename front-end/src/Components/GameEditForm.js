@@ -31,13 +31,14 @@ const GameEditForm = () => {
       try {
         let res;
         res = await axios.get(`${API}/games/${id}`);
-        setGame(res.data.payload);
+        // debugger
+        setGame(res.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchGameToEdit();
-  }, [id]);
+  }, [id, API]);
 
   const updateGame = async (gameToEdit, id) => {
     try {
@@ -46,6 +47,8 @@ const GameEditForm = () => {
       console.log(err);
     }
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,28 +72,45 @@ const GameEditForm = () => {
           id="console"
           type="text"
           required
-          value={song.artist}
-          placeholder="Artist"
+          value={game.console}
+          placeholder="Console"
           onChange={handleTextChange}
         />
-        <label htmlFor="album">Album:</label>
+        <label htmlFor="price">Price:</label>
         <input
-          id="album"
-          type="text"
-          name="album"
-          value={song.album}
-          placeholder="Album"
-          onChange={handleTextChange}
+          id="price"
+          type="number"
+          name="price"
+          value={game.price}
+          placeholder="Price"
+      
         />
-        <label htmlFor="isFavorite">Favorite:</label>
+        <label htmlFor="release_date">Release Date:</label>
         <input
-          id="isFavorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-    //   {song.isFavorite ? 'checked' : ""}
-        checked={song.is_favorite}
+          id="release_date"
+          type="date"
+          name="release_date"
+          value={game.release_date}
         
         />
+        <label htmlFor="favorites">Favorites:</label>
+        <input
+          id="favorites"
+          type="checkbox"
+          onChange={handleCheckboxChange}
+    
+        checked={game.favorites}
+        
+        />
+ <label htmlFor="box_image">Box Art Link:</label>
+        <input
+          id="box_image"
+          type="text"
+          name="box_image"
+          value={game.box_image}
+        
+        />
+        
 
         <br />
 
@@ -100,8 +120,6 @@ const GameEditForm = () => {
   </div>;
 };
 
-const handleTextChange = (e) => {
-  setGame({ ...song, [e.target.id]: e.target.value });
-};
+
 
 export default GameEditForm;

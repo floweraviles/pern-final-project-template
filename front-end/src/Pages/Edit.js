@@ -1,4 +1,4 @@
-import GameEditForm from "../components/GameEditForm";
+import GameEditForm from "../Components/GameEditForm";
 
 import React from "react";
 
