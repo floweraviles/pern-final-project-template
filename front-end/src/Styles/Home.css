@@ -1,0 +1,25 @@
+.Home {
+    color: #fff;
+    text-transform: uppercase;
+    margin: 60px;
+}
+
+.Home h2 {
+    font-family: Maven Pro;
+}
+
+.Home h1 {
+    font-family: Yeseva One;
+    font-size: 52px;
+}
+
+.Home button {
+    color: #fff;
+    background-color: #104FBD;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-family: Maven Pro;
+    margin-top: 50px;
+    border: none;
+    font-size: 18px;
+}

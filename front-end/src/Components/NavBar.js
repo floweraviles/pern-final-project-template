@@ -13,7 +13,7 @@ export default function NavBar() {
           <h1><NavLink to={"/reviews"}>Reviews</NavLink></h1>
           <h1><NavLink to={"/about"}>About</NavLink></h1>
         </div>
-        <NavLink to="/cart"><i className="fas fa-shopping-cart"></i></NavLink>
+        <NavLink to="/cart" className="cart-icon"><i className="fas fa-shopping-cart"></i></NavLink>
       </nav>
     );
   }

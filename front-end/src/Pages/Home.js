@@ -1,9 +1,15 @@
-function New({ addGame }) {
-    return (
-      <div className="New">
-        <h2>Checkout these games</h2>
+import "../Styles/Home.css";
+import { Link } from "react-router-dom";
+const Home = () => {
+  return (
+    <section className="Home">
+      <div>
+        <h2>Welcome to</h2>
+        <h1>Retro Games</h1>
+        <Link to={"/games"}><button>See our games</button></Link>
       </div>
-    );
-  }
-  
-  export default New;
+    </section>
+  );
+};
+
+export default Home;
