@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
+import Cart from "./Components/Cart";
 
 import NavBar from "./Components/NavBar";
 
@@ -13,11 +14,13 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   const addGameToShoppingCart = (newShoppingCartItem) => {
- 
-    setShoppingCart((prevShoppingCart) => [...prevShoppingCart, newShoppingCartItem]);
+    setShoppingCart((prevShoppingCart) => [
+      ...prevShoppingCart,
+      newShoppingCartItem,
+    ]);
   };
 
-  console.log(shoppingCart)
+  console.log(shoppingCart);
   return (
     <div className="App">
       <Router>
@@ -28,7 +31,7 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/games">
-              <Index addGameToShoppingCart={addGameToShoppingCart}/>
+              <Index addGameToShoppingCart={addGameToShoppingCart} />
             </Route>
             <Route path="/games/new">
               <New />
@@ -38,6 +41,9 @@ function App() {
             </Route>
             <Route path="/games/:id/edit">
               <Edit />
+            </Route>
+            <Route exact path="/cart">
+              <Cart shoppingCart={shoppingCart} />
             </Route>
             <Route path="*">
               <FourOFour />
