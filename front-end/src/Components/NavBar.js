@@ -1,17 +1,19 @@
-import { Link } from "react-router-dom";
-// import "./NavBar.css"
+import { NavLink } from "react-router-dom";
+import "../Styles/NavBar.css"
 
 export default function NavBar() {
     return (
       <nav className = "NavBar">
         <h1 className = "home">
-          <Link to="/games">Retro Gems Store</Link>
+          <NavLink exact to="/">RG_</NavLink>
         </h1>
-        <br></br>
-        <button className = "button">
-          <Link to="/games/new">New Game</Link>
-        </button>
-        <h1><Link to="/cart">Cart</Link></h1>
+        <div>
+          <h1><NavLink exact to={"/"}>Home</NavLink></h1>
+          <h1><NavLink to={"/games"}>Games</NavLink></h1>
+          <h1><NavLink to={"/reviews"}>Reviews</NavLink></h1>
+          <h1><NavLink to={"/about"}>About</NavLink></h1>
+        </div>
+        <NavLink to="/cart" className="cart-icon"><i className="fas fa-shopping-cart"></i></NavLink>
       </nav>
     );
   }
