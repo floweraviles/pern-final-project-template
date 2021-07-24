@@ -11,6 +11,7 @@ export default function NavBar() {
         <button className = "button">
           <Link to="/games/new">New Game</Link>
         </button>
+        <h1><Link to="/cart">Cart</Link></h1>
       </nav>
     );
   }
