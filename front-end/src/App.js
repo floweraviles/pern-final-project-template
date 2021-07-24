@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { useState } from "react";
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
 import Home from "./Pages/Home";
@@ -10,7 +10,14 @@ import Show from "./Pages/Show";
 import NavBar from "./Components/NavBar";
 
 function App() {
-  
+  const [shoppingCart, setShoppingCart] = useState([]);
+
+  const addGameToShoppingCart = (newShoppingCartItem) => {
+ 
+    setShoppingCart((prevShoppingCart) => [...prevShoppingCart, newShoppingCartItem]);
+  };
+
+  console.log(shoppingCart)
   return (
     <div className="App">
       <Router>
@@ -21,7 +28,7 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/games">
-              <Index />
+              <Index addGameToShoppingCart={addGameToShoppingCart}/>
             </Route>
             <Route path="/games/new">
               <New />
