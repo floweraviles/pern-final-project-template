@@ -1,8 +1,7 @@
-function New({ addSong }) {
+function New({ addGame }) {
     return (
       <div className="New">
-        <h2>Welcome</h2>
-        <h3>To the greatest Tuner app!</h3>
+        <h2>Checkout these games</h2>
       </div>
     );
   }
