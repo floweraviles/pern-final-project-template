@@ -14,7 +14,6 @@ const GamesList = () => {
             try {
                 const res = await axios.get(`${API}/games`)
                 setGames(res.data)
-                debugger
             } catch (error) {
                 console.log(error);
             }
@@ -33,4 +32,4 @@ const GamesList = () => {
     )
 }
 
-export default GamesList
+export default GamesList;

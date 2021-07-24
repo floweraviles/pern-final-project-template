@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, withRouter, useHistory, useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
-import './GameDetails.css'
+// import './GameDetails.css'
 
 
 
@@ -41,8 +41,8 @@ function GameDetails() {
 
   return (
       <div className="list-container">
-        <h1>game</h1>
-      <h2>{game.name}</h2>
+       
+      <h1>{game.name}</h1>
       <h3>{game.console}</h3>
       <h3>{game.price}</h3>
       <h4>{game.release_date}</h4>
@@ -51,7 +51,7 @@ function GameDetails() {
         ) : (
           <span className="notfav">X</span>
         )}</h4>
-        <img>{game.box_image}</img>
+       <img src={game.box_image} alt="game img" />
       <Link to={`/games/${game.id}/edit`}>
       <button className="edit" type="button">
           Edit
