@@ -1,10 +1,11 @@
 import GamesList from "../Components/GamesList"
 
-const Index = () => {
+const Index = ({addGameToShoppingCart}) => {
+    
     return (
         <section>
             <h1>All Our Games</h1>
-            <GamesList/>
+            <GamesList addGameToShoppingCart={addGameToShoppingCart}/>
         </section>
     )
 }

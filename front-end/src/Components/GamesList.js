@@ -6,8 +6,10 @@ import GameListItem from "./GameListItem"
 
 const API = apiURL()
 
-const GamesList = () => {
+const GamesList = ({addGameToShoppingCart}) => {
     const [games, setGames] = useState([])
+
+   
 
     useEffect(() => {
         const fetchGames = async () => {
@@ -25,7 +27,7 @@ const GamesList = () => {
         <div>
             <ul>
                 {games.map(game => {
-                    return <GameListItem key={game.id} game={game} />
+                    return <GameListItem key={game.id} game={game} addGameToShoppingCart={addGameToShoppingCart} />
                 })}
             </ul>
         </div>
