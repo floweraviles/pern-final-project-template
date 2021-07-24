@@ -20,6 +20,11 @@ function App() {
     ]);
   };
 
+  const deleteShoppingCartItem = (id) => {
+    const filteredArray = shoppingCart.filter((item) => item.id !== id);
+    setShoppingCart(filteredArray);
+  };
+
   console.log(shoppingCart);
   return (
     <div className="App">
@@ -43,7 +48,7 @@ function App() {
               <Edit />
             </Route>
             <Route exact path="/cart">
-              <Cart shoppingCart={shoppingCart} />
+              <Cart shoppingCart={shoppingCart} deleteShoppingCartItem={deleteShoppingCartItem}/>
             </Route>
             <Route path="*">
               <FourOFour />
