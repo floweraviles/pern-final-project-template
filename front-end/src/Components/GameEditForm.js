@@ -26,6 +26,10 @@ const GameEditForm = () => {
     setGame({ ...game, favorites: !game.favorites });
   };
 
+  const handleNumChange = (e) => {
+    setGame({...game, [e.target.id]:Number(e.target.value) })
+  };
+
   useEffect(() => {
     const fetchGameToEdit = async () => {
       try {
@@ -38,7 +42,7 @@ const GameEditForm = () => {
       }
     };
     fetchGameToEdit();
-  }, [id, API]);
+  }, [id]);
 
   const updateGame = async (gameToEdit, id) => {
     try {
@@ -83,14 +87,16 @@ const GameEditForm = () => {
           name="price"
           value={game.price}
           placeholder="Price"
+          onChange={handleNumChange}
       
         />
         <label htmlFor="release_date">Release Date:</label>
         <input
           id="release_date"
-          type="date"
+          type="number"
           name="release_date"
           value={game.release_date}
+          onChange={handleNumChange}
         
         />
         <label htmlFor="favorites">Favorites:</label>
@@ -108,6 +114,7 @@ const GameEditForm = () => {
           type="text"
           name="box_image"
           value={game.box_image}
+          onChange={handleTextChange}
         
         />
         

@@ -34,6 +34,10 @@ function GameNewForm() {
     setGame({ ...game, [event.target.id]: !game.favorites });
   };
 
+  const handleNumChange = (e) => {
+    setGame({...game, [e.target.id]:Number(e.target.value) })
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addGame(game);
@@ -41,7 +45,7 @@ function GameNewForm() {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">Game Name:</label>
         <input
           id="name"
@@ -52,21 +56,25 @@ function GameNewForm() {
         />
 
         <label htmlFor="console">Console:</label>
-        <input id="console" type="text" onChange={handleTextInput} required />
+        <input id="console" type="text" value={game.console}onChange={handleTextInput} required />
 
         <label htmlFor="price">Price:</label>
-        <input id="price" type="text" onChange={handleTextInput} required />
+        <input id="price" type="number" value={game.price}onChange={handleNumChange} required />
 
         <label htmlFor="release_date">Release Year:</label>
         <input
           id="release_date"
-          type="text"
-          onChange={handleTextInput}
+          value={game.release_date}
+          type="number"
+          onChange={handleNumChange}
           required
         />
 
         <label htmlFor="favorites">Favorites:</label>
-        <input id="favorites" type="checkbox" onChange={handleCheckBox} />
+        <input id="favorites" type="checkbox" checked={game.favorites} onChange={handleCheckBox} />
+
+        <label htmlFor="box_image">Box Image:</label>
+        <input id="box_image" type="text" value={game.box_image} onChange={handleTextInput} />
 
         <input type="submit" />
       </form>
