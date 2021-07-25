@@ -6,10 +6,10 @@ const reviews = express.Router({
 
 const { getAllReviewsForGame } = require("../queries/reviews");
 
-reviews.get("/:id", async (req, res) => {
-  const gameReviews = await getAllReviewsForGame(req.params.id);
-  res.json(gameReviews);
+reviews.get("/", async (req, res) => {
+  const { game_id } = req.params;
+  const gameReview = await getAllReviewsForGame(game_id);
+  res.json(gameReview);
 });
 
-module.exports = reviews
-
+module.exports = reviews;
