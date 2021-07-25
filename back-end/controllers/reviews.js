@@ -5,26 +5,19 @@ const reviews = express.Router({
 });
 
 const { 
-  // getAllReviews,
-  getAllReviewsForGame,
+  getReview,
   newReviewForGame,
   updateReview,
   deleteReview
  } = require("../queries/reviews");
 
+
+
 //gets all reviews for all games:
 reviews.get("/", async (req, res) => {
-const allReviews = await getAllReviews(req.params.game_id)
+const allReviews = await getReview()
 res.json(allReviews)
 });
-
-//gets reviews for a specific game 
-reviews.get("/", async (req, res) => {
-  const { game_id } = req.params
-  const gameReviews = await getAllReviewsForGame(game_id);
-  res.json(gameReviews);
-});
-
 reviews.post("/", async (req, res) => {
 const {game_id} = req.params
 const created = await newReviewForGame(req.body, game_id)
