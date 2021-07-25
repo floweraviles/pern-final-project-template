@@ -9,7 +9,7 @@ const {
   updateGame,
 } = require("../queries/games");
 
-games.use("/:id/reviews", reviewsController);
+games.use("/:game_id/reviews", reviewsController);
 
 games.get("/", async (req, res) => {
   const allGames = await getAllGames();

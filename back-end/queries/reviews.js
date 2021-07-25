@@ -14,6 +14,6 @@ SELECT * FROM reviews WHERE id = $1`,
   }
 };
 
-module.export = {
+module.exports = {
     getAllReviewsForGame
 }
