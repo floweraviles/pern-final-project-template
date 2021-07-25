@@ -2,15 +2,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, withRouter, useHistory, useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
-// import './GameDetails.css'
-
-
+import '../Styles/GameDetails.css'
+import FetchGameReviews from "./FetchGameReviews";
 
 const API = apiURL();
 function GameDetails() {
   const [game, setgame] = useState([]);
   let history = useHistory();
   const { id } = useParams();
+
 
   const deleteGame = async () => {
     try {
@@ -37,34 +37,38 @@ function GameDetails() {
     await deleteGame();
     history.push("/games");
   };
- 
 
   return (
-      <div className="list-container">
-       
+    <div className="list-container">
       <h1>{game.name}</h1>
       <h3>{game.console}</h3>
       <h3>{game.price}</h3>
       <h4>{game.release_date}</h4>
-      <h4>{game.favorite ? (
+      <h4>
+        {game.favorite ? (
           <span>⭐️ Its a Favorite</span>
         ) : (
           <span className="notfav">X</span>
-        )}</h4>
-       <img src={game.box_image} alt="game img" />
+        )}
+      </h4>
+      <img src={game.box_image} alt="game img" />
       <Link to={`/games/${game.id}/edit`}>
-      <button className="edit" type="button">
+        <button className="edit" type="button">
           Edit
-      </button>
+        </button>
       </Link>
-      <button  className="delete" onClick={handleDelete}>Delete</button>
+      <button className="delete" onClick={handleDelete}>
+        Delete
+      </button>
       <Link to={`/games`}>
-        <button  className="back" type="button">
+        <button className="back" type="button">
           Go Back
         </button>
       </Link>
-
-      </div>
+      <h2>Game Reviews</h2>
+      
+      <FetchGameReviews />
+    </div>
   );
 }
 
