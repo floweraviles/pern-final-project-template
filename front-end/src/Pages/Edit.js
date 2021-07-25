@@ -1,13 +1,14 @@
 import GameEditForm from "../Components/GameEditForm";
+import "../Styles/GameEditForm.css";
 
 import React from "react";
 
 const Edit = () => {
   return (
-    <div>
+    <section className="game-edit-section">
       <h2>Edit Game</h2>
       <GameEditForm />
-    </div>
+    </section>
   );
 };
 
