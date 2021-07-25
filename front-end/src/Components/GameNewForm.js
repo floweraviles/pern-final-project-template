@@ -44,22 +44,22 @@ function GameNewForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+      <form className="game-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Game Name:</label>
         <input
           id="name"
           value={game.name}
           type="text"
           onChange={handleTextInput}
+          placeholder="Title of Game"
           required
         />
 
         <label htmlFor="console">Console:</label>
-        <input id="console" type="text" value={game.console}onChange={handleTextInput} required />
+        <input id="console" type="text" value={game.console}onChange={handleTextInput} placeholder="Console Name" required />
 
         <label htmlFor="price">Price:</label>
-        <input id="price" type="number" value={game.price}onChange={handleNumChange} required />
+        <input id="price" type="number" value={game.price}onChange={handleNumChange} placeholder="$$" required />
 
         <label htmlFor="release_date">Release Year:</label>
         <input
@@ -67,6 +67,7 @@ function GameNewForm() {
           value={game.release_date}
           type="number"
           onChange={handleNumChange}
+          placeholder="Release Year"
           required
         />
 
@@ -74,11 +75,11 @@ function GameNewForm() {
         <input id="favorites" type="checkbox" checked={game.favorites} onChange={handleCheckBox} />
 
         <label htmlFor="box_image">Box Image:</label>
-        <input id="box_image" type="text" value={game.box_image} onChange={handleTextInput} />
+        <input id="box_image" type="text" value={game.box_image} onChange={handleTextInput} placeholder="http//:" />
+        <br />
+        <button>Submit</button>
 
-        <input type="submit" />
       </form>
-    </div>
   );
 }
 export default withRouter(GameNewForm);

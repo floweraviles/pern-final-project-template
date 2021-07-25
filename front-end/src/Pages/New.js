@@ -1,9 +1,11 @@
 import GameNewForm from "../Components/GameNewForm";
+import "../Styles/GameEditForm.css"
 function New() {
   return (
-    <div>
+    <section className="game-edit-section">
+      <h2>New Game</h2>
       <GameNewForm />
-    </div>
+    </section>
   );
 }
 export default New;
