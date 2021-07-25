@@ -24,7 +24,7 @@ const GamesList = ({addGameToShoppingCart}) => {
     }, [])
 
     return (
-        <div>
+        <div className="game-index">
             <ul>
                 {games.map(game => {
                     return <GameListItem key={game.id} game={game} addGameToShoppingCart={addGameToShoppingCart} />

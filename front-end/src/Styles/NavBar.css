@@ -1,9 +1,9 @@
-
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 12vh;
+    padding: 0 60px;
+    height: 15vh;
     font-family: Maven Pro;
     border-bottom: 1px solid #fff;
 }
@@ -13,7 +13,7 @@ nav div {
 }
 
 nav div h1 {
-    margin: 0 10px;
+    margin: 0 20px;
     font-family: Maven Pro;
     text-transform: uppercase;
     font-size: 20px;
