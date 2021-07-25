@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import "../Styles/GameEditForm.css";
 
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
@@ -27,7 +28,7 @@ const GameEditForm = () => {
   };
 
   const handleNumChange = (e) => {
-    setGame({...game, [e.target.id]:Number(e.target.value) })
+    setGame({ ...game, [e.target.id]: Number(e.target.value) });
   };
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const GameEditForm = () => {
       try {
         let res;
         res = await axios.get(`${API}/games/${id}`);
-        // debugger
+
         setGame(res.data);
       } catch (err) {
         console.log(err);
@@ -52,81 +53,70 @@ const GameEditForm = () => {
     }
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateGame(game, id);
     history.push(`/games/${id}`);
   };
-  return <div>
+  return(
 
-<form onSubmit={handleSubmit}>
-        <label htmlFor="name">Title of Game:</label>
-        <input
-          id="name"
-          value={game.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Title of Game "
-          required
-        />
-        <label htmlFor="console">Console:</label>
-        <input
-          id="console"
-          type="text"
-          required
-          value={game.console}
-          placeholder="Console"
-          onChange={handleTextChange}
-        />
-        <label htmlFor="price">Price:</label>
-        <input
-          id="price"
-          type="number"
-          name="price"
-          value={game.price}
-          placeholder="Price"
-          onChange={handleNumChange}
-      
-        />
-        <label htmlFor="release_date">Release Date:</label>
-        <input
-          id="release_date"
-          type="number"
-          name="release_date"
-          value={game.release_date}
-          onChange={handleNumChange}
-        
-        />
-        <label htmlFor="favorites">Favorites:</label>
-        <input
-          id="favorites"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-    
-        checked={game.favorites}
-        
-        />
- <label htmlFor="box_image">Box Art Link:</label>
-        <input
-          id="box_image"
-          type="text"
-          name="box_image"
-          value={game.box_image}
-          onChange={handleTextChange}
-        
-        />
-        
+  <form className="game-edit-form" onSubmit={handleSubmit}>
+    <label htmlFor="name">Title of Game:</label>
+    <input
+      id="name"
+      value={game.name}
+      type="text"
+      onChange={handleTextChange}
+      placeholder="Title of Game"
+      required
+    />
+    <label htmlFor="console">Console:</label>
+    <input
+      id="console"
+      type="text"
+      required
+      value={game.console}
+      placeholder="Console"
+      onChange={handleTextChange}
+    />
+    <label htmlFor="price">Price:</label>
+    <input
+      id="price"
+      type="number"
+      name="price"
+      value={game.price}
+      placeholder="Price"
+      onChange={handleNumChange}
+    />
+    <label htmlFor="release_date">Release Date:</label>
+    <input
+      id="release_date"
+      type="number"
+      name="release_date"
+      value={game.release_date}
+      onChange={handleNumChange}
+    />
+    <label htmlFor="favorites">Favorites:</label>
+    <input
+      id="favorites"
+      type="checkbox"
+      onChange={handleCheckboxChange}
+      checked={game.favorites}
+    />
+    <label htmlFor="box_image">Box Art Link:</label>
+    <input
+      id="box_image"
+      type="text"
+      name="box_image"
+      value={game.box_image}
+      onChange={handleTextChange}
+    />
 
-        <br />
+    <br />
 
-        <button>Submit</button>
-      </form>
-
-  </div>;
+    <button>Submit</button>
+  </form>
+  )
 };
-
-
 
 export default GameEditForm;
