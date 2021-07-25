@@ -14,3 +14,13 @@ CREATE TABLE games(
     favorites BOOLEAN NOT NULL DEFAULT FALSE,
     box_image TEXT NOT NULL
 );
+
+CREATE TABLE reviews(
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    reviewer TEXT NOT NULL,
+    content TEXT NOT NULL,
+    rating NUMERIC NOT NULL, CHECK (rating >=0 AND rating <= 5),
+    game_id INT REFERENCES games (id) 
+        ON DELETE CASCADE 
+);

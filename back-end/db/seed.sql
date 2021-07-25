@@ -399,3 +399,9 @@ VALUES (
         true,
         'https://upload.wikimedia.org/wikipedia/en/2/28/Thunder_Force_III_cover.jpg'
     );
+
+    INSERT INTO reviews (game_id, reviewer, title, content, rating)
+VALUES
+(1, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3),
+(2, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3),
+(3, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3);
