@@ -1,6 +1,7 @@
 const db = require("../db/dbConfig");
 
 const getAllGames = async () => {
+  console.log("getAllGames")
   try {
     const allGames = await db.any("SELECT * FROM games");
     return allGames;
@@ -9,6 +10,7 @@ const getAllGames = async () => {
   }
 };
 const getGame = async (id) => {
+  console.log("Getgame")
   try {
       const game = await db.one(`SELECT * FROM games WHERE id = $1`, id)
       return game
