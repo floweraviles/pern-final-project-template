@@ -1,26 +1,61 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
+import Edit from "./Pages/Edit";
+import FourOFour from "./Pages/FourOFour";
+import Home from "./Pages/Home";
+import Index from "./Pages/Index";
+import New from "./Pages/New";
+import Show from "./Pages/Show";
+import Cart from "./Components/Cart";
+
+import NavBar from "./Components/NavBar";
 
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
+  const [shoppingCart, setShoppingCart] = useState([]);
+
+  const addGameToShoppingCart = (newShoppingCartItem) => {
+    setShoppingCart((prevShoppingCart) => [
+      ...prevShoppingCart,
+      newShoppingCartItem,
+    ]);
+  };
+
+  const deleteShoppingCartItem = (id) => {
+    const filteredArray = shoppingCart.filter((item) => item.id !== id);
+    setShoppingCart(filteredArray);
+  };
+
+  console.log(shoppingCart);
   return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+    <div className="App">
+      <Router>
+        <NavBar />
+        <main>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/games">
+              <Index addGameToShoppingCart={addGameToShoppingCart} />
+            </Route>
+            <Route path="/games/new">
+              <New />
+            </Route>
+            <Route exact path="/games/:id">
+              <Show />
+            </Route>
+            <Route path="/games/:id/edit">
+              <Edit />
+            </Route>
+            <Route exact path="/cart">
+              <Cart shoppingCart={shoppingCart} deleteShoppingCartItem={deleteShoppingCartItem}/>
+            </Route>
+            <Route path="*">
+              <FourOFour />
+            </Route>
+          </Switch>
+        </main>
+      </Router>
     </div>
   );
 }

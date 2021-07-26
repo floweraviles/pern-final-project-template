@@ -1,0 +1,100 @@
+.Index {
+  margin: 40px;
+  color: #fff;
+  font-family: Maven Pro;
+  text-transform: uppercase;
+}
+
+.Index .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.Index .title h1 {
+  font-size: 28px;
+}
+
+.Index .title button {
+  color: #0d3f95;
+  padding: 8px 22px;
+  background-color: #fff;
+  border: none;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Index .title button:hover {
+  text-decoration: underline;
+}
+
+.game-index img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.game-index ul {
+  list-style: none;
+  width: 95vw;
+  display: grid;
+  grid-auto-columns: minmax(max-content, 1fr);
+  grid-template-areas: "c c c c";
+  gap: 10px;
+}
+
+.game-index li {
+  width: 280px;
+  padding: 10px;
+  margin: 0 10px 40px;
+  background: radial-gradient(
+    299.2% 165.53% at 0% 2.87%,
+    #000000 0%,
+    #555 100%
+  );
+  box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+.game-index li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.game-index li a:hover {
+  text-decoration: underline;
+}
+
+.game-index li h2 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.game-index li h3 {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.game-index li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.game-index li div button {
+  color: #fff;
+  background-color: #104fbd;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}

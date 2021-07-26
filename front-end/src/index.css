@@ -1,13 +1,23 @@
-body {
+@font-face {
+  font-family: Maven Pro;
+  src: url("./Fonts/Maven_Pro\,Yeseva_One/Maven_Pro/static/MavenPro-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: Yeseva One;
+  src: url("./Fonts/Maven_Pro,Yeseva_One/Yeseva_One/YesevaOne-Regular.ttf");
+  font-weight: 400;
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body{
+  background: linear-gradient(115.23deg, #000000 36.21%, #2C2828 93.01%);
 }
