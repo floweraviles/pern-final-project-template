@@ -21,6 +21,6 @@ CREATE TABLE reviews(
     reviewer TEXT NOT NULL,
     content TEXT NOT NULL,
     rating NUMERIC NOT NULL, CHECK (rating >=0 AND rating <= 5),
-    game_id INT REFERENCES games (id) 
+    game_id INT REFERENCES games(id) 
         ON DELETE CASCADE 
 );

@@ -13,6 +13,7 @@ const {
 
 
 
+
 //gets all reviews for all games:
 reviews.get("/", async (req, res) => {
 const allReviews = await getReview()
@@ -36,4 +37,5 @@ reviews.delete("/:id", async (req, res) => {
   res.json(deleted)
 })
 module.exports = reviews
+
 
