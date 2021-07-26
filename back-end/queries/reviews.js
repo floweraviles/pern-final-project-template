@@ -1,10 +1,16 @@
 const db = require("../db/dbConfig");
 
 const getAllReviewsForGame = async (gameId) => {
+  console.log("getAllReviewsForGame")
   try {
     const allReviewsForGame = await db.any(
+<<<<<<< HEAD
       `SELECT * FROM reviews WHERE id = $1`,
       gameId
+=======
+      `SELECT * FROM reviews WHERE game_id = $1`
+      ,gameId
+>>>>>>> 6eb793ef1b9aea2c8f9c44311c5e7f9845e5a6df
     );
     return { success: true, payload: allReviewsForGame };
   } catch (err) {
@@ -13,10 +19,16 @@ const getAllReviewsForGame = async (gameId) => {
   }
 };
 
-const getReview = async (id) => {
+const getReview = async () => {
+  console.log("getReview")
   try {
+<<<<<<< HEAD
     const review = await db.one("SELECT * FROM reviews WHERE id = $1", id);
     return { success: true, payload: review };
+=======
+      const review = await db.any(`SELECT * FROM reviews`);
+      return { success: true, payload: review };
+>>>>>>> 6eb793ef1b9aea2c8f9c44311c5e7f9845e5a6df
   } catch (e) {
     console.log(e);
     return { success: false, payload: e };
@@ -24,6 +36,7 @@ const getReview = async (id) => {
 };
 
 const newReviewForGame = async (review, gameId) => {
+  console.log("newReviewForGame")
   const { reviewer, title, content, rating } = review;
   try {
     const created = await db.one(
@@ -43,6 +56,7 @@ const newReviewForGame = async (review, gameId) => {
 };
 
 const updateReview = async (id, review) => {
+  console.log("updateReview")
   const { reviewer, title, content, rating, game_id } = review;
   try {
     const res = await db.one(
@@ -61,6 +75,7 @@ const updateReview = async (id, review) => {
 };
 
 const deleteReview = async (id) => {
+  console.log("deleteReview")
   try {
     const deletedReview = await db.one(
       `
@@ -78,9 +93,18 @@ const deleteReview = async (id) => {
 };
 
 module.exports = {
+<<<<<<< HEAD
   getAllReviewsForGame,
   getReview,
   newReviewForGame,
   updateReview,
   deleteReview,
 };
+=======
+    getAllReviewsForGame,
+    getReview,
+    newReviewForGame,
+    updateReview,
+    deleteReview,
+}
+>>>>>>> 6eb793ef1b9aea2c8f9c44311c5e7f9845e5a6df

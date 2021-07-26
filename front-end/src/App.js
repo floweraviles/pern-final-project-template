@@ -42,7 +42,7 @@ function App() {
               <New />
             </Route>
             <Route exact path="/games/:id">
-              <Show />
+              <Show addGameToShoppingCart={addGameToShoppingCart}/>
             </Route>
             <Route path="/games/:id/edit">
               <Edit />
