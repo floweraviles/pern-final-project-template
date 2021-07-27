@@ -1,12 +1,14 @@
 .Index {
-  margin: 40px;
+  padding: 40px 20px;
   color: #fff;
   font-family: Maven Pro;
   text-transform: uppercase;
 }
 
 .Index .title {
+  padding: 0;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
@@ -14,6 +16,7 @@
 
 .Index .title h1 {
   font-size: 28px;
+  text-align: start;
 }
 
 .Index .title button {
@@ -45,6 +48,7 @@
   grid-auto-columns: minmax(max-content, 1fr);
   grid-template-areas: "c c c c";
   gap: 10px;
+  justify-items: center;
 }
 
 .game-index li {
@@ -97,4 +101,29 @@
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .game-index ul {
+        grid-template-areas: "c c c";
+      }
+}
+
+@media screen and (max-width: 980px) {
+    .game-index ul {
+        grid-template-areas: "c c";
+      }
+}
+
+
+@media screen and (max-width: 660px) {
+    .game-index ul {
+        grid-template-areas: "c";
+        
+      }
+
+      .game-index li {
+          
+      }
 }
