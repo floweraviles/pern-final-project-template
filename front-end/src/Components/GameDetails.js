@@ -64,7 +64,7 @@ function GameDetails({addGameToShoppingCart}) {
           </button>
           <Link to={`/games`}>
             <button className="back" type="button">
-              Go Back
+              Back
             </button>
           </Link>
         </div>
