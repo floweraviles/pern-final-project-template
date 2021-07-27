@@ -7,6 +7,7 @@ import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Cart from "./Components/Cart";
+import About from "./Pages/About";
 
 import NavBar from "./Components/NavBar";
 
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path="/games">
               <Index addGameToShoppingCart={addGameToShoppingCart} />
+            </Route>
+            <Route exact path="/about">
+              <About />
             </Route>
             <Route path="/games/new">
               <New />
