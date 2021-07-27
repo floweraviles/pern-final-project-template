@@ -1,9 +1,9 @@
 import "../Styles/About.css";
 
 
-export default function About() {
+const About= () => {
     return (
-      <div>
+      <div className="About">
         <h1>About Us</h1>
         <h2>Retro Games is a new video game retailer headquartered in New York, NY. 
             Founded in July, 2021 by famed full-stack web developers Jordan Bobadilla, Obaid Rustemi, Flower Aviles and Dalíz Cruz. 
@@ -44,3 +44,5 @@ export default function About() {
       </div>
     );
   }
+
+  export default About;
