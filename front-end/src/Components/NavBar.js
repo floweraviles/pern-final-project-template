@@ -10,8 +10,8 @@ export default function NavBar() {
         <div>
           <h1><NavLink exact to={"/"}>Home</NavLink></h1>
           <h1><NavLink to={"/games"}>Games</NavLink></h1>
-          <h1><NavLink to={"/reviews"}>Reviews</NavLink></h1>
           <h1><NavLink to={"/about"}>About</NavLink></h1>
+          <i class="fas fa-bars"></i>
         </div>
         <NavLink to="/cart" className="cart-icon"><i className="fas fa-shopping-cart"></i></NavLink>
       </nav>

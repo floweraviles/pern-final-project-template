@@ -38,7 +38,7 @@ const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
                   <img src={item.box_image} alt="video_game_img" />
                   <div>
                     <h2>{item.name}</h2>
-                    <h2>Price: ${item.price}(USD)</h2>
+                    <h2>Price: USD ${item.price}</h2>
                     <button onClick={() => deleteShoppingCartItem(item.id)}>
                       Delete
                     </button>
@@ -58,10 +58,10 @@ const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
         <div className="checkout">
           <h3>Items in cart: {shoppingCart.length}</h3>
           <div>
-            <p>Subtotal: {subtotal.toFixed(2)}</p>
-            <p>Tax Applied: {tax.toFixed(2)}</p>
+            <p>Subtotal: USD ${subtotal.toFixed(2)}</p>
+            <p>Tax Applied: USD ${tax.toFixed(2)}</p>
           </div>
-          <h2>Total: {total.toFixed(2)}</h2>
+          <h2>Total: USD ${total.toFixed(2)}</h2>
           <button onClick={purchase}>Purchase</button>
           {buy ? <h2>Thanks for buying at Retro Games</h2> : null}
         </div>

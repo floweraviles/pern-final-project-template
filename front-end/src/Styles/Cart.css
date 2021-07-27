@@ -12,6 +12,7 @@
 
 .Cart .box {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   width: 100%;
 }
@@ -40,7 +41,7 @@
 
 .Cart ul {
   width: 80%;
-  height: 100vh;
+  height: 50vh;
   list-style: none;
   overflow-x: hidden;
   overflow-y: auto;
@@ -90,4 +91,17 @@
 
 .btn {
   margin-top: 147px;
+}
+
+@media screen and (max-width: 880px ) {
+  .Cart .box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Cart .box .checkout {
+    margin-right: 0;
+    margin-top: 40px;
+    width: 72vw;
+  }
 }

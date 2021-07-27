@@ -10,6 +10,7 @@ nav {
 
 nav div {
     display: flex;
+    align-items: center;
 }
 
 nav div h1 {
@@ -17,6 +18,13 @@ nav div h1 {
     font-family: Maven Pro;
     text-transform: uppercase;
     font-size: 20px;
+}
+
+nav div i {
+    color: #fff;
+    font-size: 28px;
+    opacity: 0;
+    cursor: pointer;
 }
 
 nav a {
@@ -38,6 +46,7 @@ nav a {
     height: 55px;
     width: 55px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .cart-icon {
@@ -49,4 +58,19 @@ nav a {
     align-items: center;
     font-size: 20px;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 660px) {
+    nav{
+        padding: 0 20px;
+    }
+    nav div h1 {
+        display: none;
+    }
+    
+    nav div i {
+        display: block;
+        opacity: 1;
+    }
 }
