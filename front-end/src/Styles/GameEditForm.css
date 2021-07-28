@@ -9,10 +9,11 @@
   margin: 40px;
   font-family: Maven Pro;
   text-transform: uppercase;
+  height: 90vh;
 }
 
 .game-edit-section h2 {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .game-edit-form label {
@@ -25,7 +26,6 @@
   margin-left: 30px;
   color: #0d3f95;
   font-family: Maven Pro;
-  /* text-transform: uppercase; */
 }
 
 .game-edit-form input[type="checkbox"] {
@@ -34,15 +34,15 @@
 }
 
 .game-edit-form button {
-    color: #fff;
-    background-color: #104FBD;
-    padding: 12px 20px;
-    text-transform: uppercase;
-    font-family: Maven Pro;
-    margin-top: 20px;
-    border: none;
-    font-size: 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 350ms;
+  color: #fff;
+  background-color: #104fbd;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  margin-top: 40px;
+  border: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 350ms;
 }

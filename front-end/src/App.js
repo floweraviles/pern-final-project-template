@@ -26,7 +26,6 @@ function App() {
     setShoppingCart(filteredArray);
   };
 
-  console.log(shoppingCart);
   return (
     <div className="App">
       <Router>
@@ -46,13 +45,16 @@ function App() {
               <New />
             </Route>
             <Route exact path="/games/:id">
-              <Show addGameToShoppingCart={addGameToShoppingCart}/>
+              <Show addGameToShoppingCart={addGameToShoppingCart} />
             </Route>
             <Route path="/games/:id/edit">
               <Edit />
             </Route>
             <Route exact path="/cart">
-              <Cart shoppingCart={shoppingCart} deleteShoppingCartItem={deleteShoppingCartItem}/>
+              <Cart
+                shoppingCart={shoppingCart}
+                deleteShoppingCartItem={deleteShoppingCartItem}
+              />
             </Route>
             <Route path="*">
               <FourOFour />
