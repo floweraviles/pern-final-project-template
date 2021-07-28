@@ -1,5 +1,5 @@
 .Index {
-  padding: 40px 20px;
+  margin: 40px;
   color: #fff;
   font-family: Maven Pro;
   text-transform: uppercase;
@@ -36,19 +36,20 @@
 
 .game-index img {
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   height: 300px;
   object-fit: contain;
+  margin: 0;
 }
 
 .game-index ul {
   list-style: none;
-  width: 95vw;
+  width: 90vw;
   display: grid;
   grid-auto-columns: minmax(max-content, 1fr);
   grid-template-areas: "c c c c";
   gap: 10px;
-  justify-items: center;
+  justify-items: flex-start;
 }
 
 .game-index li {
@@ -67,6 +68,7 @@
 .game-index li a {
   text-decoration: none;
   color: #fff;
+  width: 100%;
 }
 
 .game-index li a:hover {
@@ -103,27 +105,33 @@
   cursor: pointer;
 }
 
-
 @media screen and (max-width: 1280px) {
-    .game-index ul {
-        grid-template-areas: "c c c";
-      }
+  .game-index ul {
+    grid-template-areas: "c c c";
+  }
 }
 
 @media screen and (max-width: 980px) {
-    .game-index ul {
-        grid-template-areas: "c c";
-      }
+  .game-index ul {
+    grid-template-areas: "c c";
+    justify-items: center;
+  }
 }
 
+@media screen and (max-width: 680px) {
+  .Index {
+    margin: 40px 20px;
+  }
 
-@media screen and (max-width: 660px) {
-    .game-index ul {
-        grid-template-areas: "c";
-        
-      }
+  .game-index img {
+    margin: 0 auto;
+  }
 
-      .game-index li {
-          
-      }
+  .game-index ul {
+    grid-template-areas: "c";
+  }
+
+  .game-index li {
+    width: 80vw;
+  }
 }

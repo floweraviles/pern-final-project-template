@@ -1,3 +1,59 @@
 .About {
-    color:whitesmoke ;
+  color: #fff;
+  font-family: Maven Pro;
+  margin: 40px 60px;
+}
+
+.About h1 {
+  margin-bottom: 40px;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.About p {
+  text-align: justify;
+  font-size: 20px;
+  margin-bottom: 60px;
+  background: radial-gradient(
+    299.2% 165.53% at 0% 2.87%,
+    #000000 0%,
+    #555 100%
+  );
+  box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  padding: 40px;
+}
+
+.About p span {
+  font-family: Yeseva One;
+  text-transform: uppercase;
+}
+
+.About article {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.About div {
+  margin-bottom: 40px;
+  margin-right: 40px;
+}
+
+.About div img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 660px) {
+  .About {
+    margin: 40px 20px;
+  }
+
+  .About div {
+    margin-right: 0;
+  }
 }

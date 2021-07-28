@@ -5,7 +5,7 @@ import { apiURL } from "../util/apiURL";
 import "../Styles/GameDetails.css";
 
 const API = apiURL();
-function GameDetails({addGameToShoppingCart}) {
+function GameDetails({ addGameToShoppingCart }) {
   const [game, setgame] = useState({});
   let history = useHistory();
   const { id } = useParams();
@@ -40,7 +40,7 @@ function GameDetails({addGameToShoppingCart}) {
     <div className="container">
       <img src={game.box_image} alt="game img" />
       <div className="info">
-        <h1>{game.name}</h1>
+        <h2>{game.name}</h2>
         <h3>Console: {game.console}</h3>
         <h4>{game.release_date}</h4>
         <h3>Price: USD ${game.price?.toFixed(2)}</h3>
@@ -50,7 +50,11 @@ function GameDetails({addGameToShoppingCart}) {
           could resell it for a really good price.
         </p>
         <h4>
-          {!game.favorite ? <span>❤️</span> : <span className="notfav">💔</span>}
+          {!game.favorite ? (
+            <span>❤️</span>
+          ) : (
+            <span className="notfav">💔</span>
+          )}
         </h4>
         <button onClick={() => addGameToShoppingCart(game)}>Add to Cart</button>
         <div>
