@@ -1,6 +1,6 @@
 const express = require("express");
-const reviewsController = require('./reviews')
-const reviewsForGameController = require('./reviewsForGame')
+const reviewsController = require("./reviews");
+const reviewsForGameController = require("./reviewsForGame");
 const games = express.Router();
 const {
   getAllGames,
@@ -10,11 +10,7 @@ const {
   updateGame,
 } = require("../queries/games");
 
-
 games.use("/:game_id/reviews", reviewsForGameController);
-
-
-
 
 games.get("/", async (req, res) => {
   const allGames = await getAllGames();
@@ -24,7 +20,7 @@ games.get("/", async (req, res) => {
 games.post("/", async (req, res) => {
   const newGame = req.body;
   const result = await createGame(newGame);
-  console.log(result);
+
   res.json(result);
 });
 
@@ -40,8 +36,8 @@ games.put("/:id", async (req, res) => {
     const { id } = req.params;
     const updatedGame = await updateGame(id, req.body);
     res.status(200).json({ success: true, payload: updatedGame });
-  } catch (err) {
-    console.log(err);
+  } catch (error){
+   return error;
   }
 });
 
