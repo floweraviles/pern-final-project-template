@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, withRouter, useHistory, useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
-import '../Styles/GameDetails.css'
 import FetchGameReviews from "./FetchGameReviews";
+import '../Styles/GameDetails.css'
 
 const API = apiURL();
 function GameDetails({ addGameToShoppingCart }) {
