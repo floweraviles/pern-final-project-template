@@ -6,8 +6,8 @@ import '../Styles/GameDetails.css'
 import FetchGameReviews from "./FetchGameReviews";
 
 const API = apiURL();
-function GameDetails() {
-  const [game, setgame] = useState([]);
+function GameDetails({ addGameToShoppingCart }) {
+  const [game, setgame] = useState({});
   let history = useHistory();
   const { id } = useParams();
 

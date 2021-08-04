@@ -6,7 +6,9 @@
 }
 
 .Index .title {
+  padding: 0;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
@@ -14,6 +16,7 @@
 
 .Index .title h1 {
   font-size: 28px;
+  text-align: start;
 }
 
 .Index .title button {
@@ -33,18 +36,20 @@
 
 .game-index img {
   width: 100%;
-  max-width: 300px;
+  max-width: 600px;
   height: 300px;
   object-fit: contain;
+  margin: 0;
 }
 
 .game-index ul {
   list-style: none;
-  width: 95vw;
+  width: 90vw;
   display: grid;
   grid-auto-columns: minmax(max-content, 1fr);
   grid-template-areas: "c c c c";
   gap: 10px;
+  justify-items: flex-start;
 }
 
 .game-index li {
@@ -63,6 +68,7 @@
 .game-index li a {
   text-decoration: none;
   color: #fff;
+  width: 100%;
 }
 
 .game-index li a:hover {
@@ -97,4 +103,35 @@
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .game-index ul {
+    grid-template-areas: "c c c";
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .game-index ul {
+    grid-template-areas: "c c";
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Index {
+    margin: 40px 20px;
+  }
+
+  .game-index img {
+    margin: 0 auto;
+  }
+
+  .game-index ul {
+    grid-template-areas: "c";
+  }
+
+  .game-index li {
+    width: 80vw;
+  }
 }

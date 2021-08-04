@@ -1,5 +1,6 @@
 const express = require("express");
 const reviewsController = require('./reviews')
+const reviewsForGameController = require('./reviewsForGame')
 const games = express.Router();
 const {
   getAllGames,
@@ -9,7 +10,11 @@ const {
   updateGame,
 } = require("../queries/games");
 
-games.use("/:game_id/reviews", reviewsController);
+
+games.use("/:game_id/reviews", reviewsForGameController);
+
+
+
 
 games.get("/", async (req, res) => {
   const allGames = await getAllGames();

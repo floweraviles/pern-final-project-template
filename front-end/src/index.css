@@ -21,3 +21,7 @@
 body{
   background: linear-gradient(115.23deg, #000000 36.21%, #2C2828 93.01%);
 }
+
+section {
+  padding-top: 100px;
+}

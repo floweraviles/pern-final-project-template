@@ -35,7 +35,7 @@ function GameNewForm() {
   };
 
   const handleNumChange = (e) => {
-    setGame({...game, [e.target.id]:Number(e.target.value) })
+    setGame({ ...game, [e.target.id]: Number(e.target.value) });
   };
 
   const handleSubmit = (e) => {
@@ -44,42 +44,66 @@ function GameNewForm() {
   };
 
   return (
-      <form className="game-edit-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Game Name:</label>
-        <input
-          id="name"
-          value={game.name}
-          type="text"
-          onChange={handleTextInput}
-          placeholder="Title of Game"
-          required
-        />
+    <form className="game-edit-form" onSubmit={handleSubmit}>
+      <label htmlFor="name">Game Name:</label>
+      <input
+        id="name"
+        value={game.name}
+        type="text"
+        onChange={handleTextInput}
+        placeholder="Title of Game"
+        required
+      />
 
-        <label htmlFor="console">Console:</label>
-        <input id="console" type="text" value={game.console}onChange={handleTextInput} placeholder="Console Name" required />
+      <label htmlFor="console">Console:</label>
+      <input
+        id="console"
+        type="text"
+        value={game.console}
+        onChange={handleTextInput}
+        placeholder="Console Name"
+        required
+      />
 
-        <label htmlFor="price">Price:</label>
-        <input id="price" type="number" value={game.price}onChange={handleNumChange} placeholder="$$" required />
+      <label htmlFor="price">Price:</label>
+      <input
+        id="price"
+        type="number"
+        value={game.price}
+        onChange={handleNumChange}
+        placeholder="$$"
+        required
+      />
 
-        <label htmlFor="release_date">Release Year:</label>
-        <input
-          id="release_date"
-          value={game.release_date}
-          type="number"
-          onChange={handleNumChange}
-          placeholder="Release Year"
-          required
-        />
+      <label htmlFor="release_date">Release Year:</label>
+      <input
+        id="release_date"
+        value={game.release_date}
+        type="number"
+        onChange={handleNumChange}
+        placeholder="Release Year"
+        required
+      />
 
-        <label htmlFor="favorites">Favorites:</label>
-        <input id="favorites" type="checkbox" checked={game.favorites} onChange={handleCheckBox} />
+      <label htmlFor="favorites">Favorites:</label>
+      <input
+        id="favorites"
+        type="checkbox"
+        checked={game.favorites}
+        onChange={handleCheckBox}
+      />
 
-        <label htmlFor="box_image">Box Image:</label>
-        <input id="box_image" type="text" value={game.box_image} onChange={handleTextInput} placeholder="http//:" />
-        <br />
-        <button>Submit</button>
-
-      </form>
+      <label htmlFor="box_image">Box Image:</label>
+      <input
+        id="box_image"
+        type="text"
+        value={game.box_image}
+        onChange={handleTextInput}
+        placeholder="http//:"
+      />
+      <br />
+      <button>Submit</button>
+    </form>
   );
 }
 export default withRouter(GameNewForm);

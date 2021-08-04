@@ -2,3 +2,23 @@
     color: white;
     text-align: center;
 }
+
+.review-section table { 
+    display: flex;
+    justify-content: center;
+    color: white;
+} 
+
+
+h2 {
+    margin-top: 20px;
+}
+
+.review-section {
+    padding: none;
+    margin: none;
+}
+
+.review-title {
+    font-size: 18px;
+}

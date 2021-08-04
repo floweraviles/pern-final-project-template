@@ -1,0 +1,105 @@
+.Cart {
+  margin: 40px;
+  font-family: Maven Pro;
+  color: #fff;
+  text-transform: uppercase;
+  height: 90vh;
+}
+
+.Cart h1 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+.Cart .box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.Cart .box .checkout {
+  margin-right: 200px;
+  width: 40vw;
+}
+
+.Cart .box .checkout div {
+  margin: 20px 0;
+}
+
+.Cart .box .checkout button {
+  color: #fff;
+  background-color: #104fbd;
+  padding: 8px 40px;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0;
+}
+
+.Cart ul {
+  width: 80%;
+  height: 100%;
+  max-height: 50vh;
+  list-style: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-right: 40px;
+}
+
+.Cart li {
+  display: flex;
+  width: 100%;
+  background: radial-gradient(300% 130% at 0% 2.87%, #000000 0%, #555 100%);
+  box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  margin-right: 0;
+}
+
+.Cart li img {
+  width: 60%;
+  height: auto;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+.Cart li h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.Cart li div {
+  margin-left: 20px;
+  padding-top: 20px;
+}
+
+.Cart ul button {
+  color: #0d3f95;
+  padding: 8px 22px;
+  background-color: #fff;
+  border: none;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 880px) {
+  .Cart .box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Cart .box .checkout {
+    margin-right: 0;
+    margin-top: 40px;
+    width: 72vw;
+  }
+}

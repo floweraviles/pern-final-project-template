@@ -7,6 +7,7 @@ import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Cart from "./Components/Cart";
+import About from "./Pages/About";
 
 import NavBar from "./Components/NavBar";
 
@@ -25,7 +26,6 @@ function App() {
     setShoppingCart(filteredArray);
   };
 
-  console.log(shoppingCart);
   return (
     <div className="App">
       <Router>
@@ -38,17 +38,23 @@ function App() {
             <Route exact path="/games">
               <Index addGameToShoppingCart={addGameToShoppingCart} />
             </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
             <Route path="/games/new">
               <New />
             </Route>
             <Route exact path="/games/:id">
-              <Show />
+              <Show addGameToShoppingCart={addGameToShoppingCart} />
             </Route>
             <Route path="/games/:id/edit">
               <Edit />
             </Route>
             <Route exact path="/cart">
-              <Cart shoppingCart={shoppingCart} deleteShoppingCartItem={deleteShoppingCartItem}/>
+              <Cart
+                shoppingCart={shoppingCart}
+                deleteShoppingCartItem={deleteShoppingCartItem}
+              />
             </Route>
             <Route path="*">
               <FourOFour />
