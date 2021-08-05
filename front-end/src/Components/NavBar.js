@@ -8,7 +8,7 @@ export default function NavBar() {
   const showMenu = () => {
     setMenu((prevMenu) => !prevMenu);
   };
-  console.log(menu);
+
   return (
     <header>
       <nav className="NavBar">

@@ -17,17 +17,17 @@ const FetchGameReviews = () => {
         const reviewsForGame = await axios.get(`${API}/games/${id}/reviews`);
         
         setReviews(reviewsForGame.data.payload);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        return error
       }
     };
     fetchAllReviewsForGame();
-    console.log(reviews)
+    
   }, []);
   return (
     <section className="review-section">
       <table>
-        {console.log("showGameReview")}
+       
         {reviews.map((review) => { 
        return <ShowGameReviews review={review} />;
         })}
