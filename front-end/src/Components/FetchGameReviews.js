@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, withRouter, useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 import ShowGameReviews from "./ShowGameReviews";
 import '../Styles/GameDetails.css'
 
 const API = apiURL();
 const FetchGameReviews = () => {
-  //   let history = useHistory();
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -15,7 +14,6 @@ const FetchGameReviews = () => {
     const fetchAllReviewsForGame = async () => {
       try {
         const reviewsForGame = await axios.get(`${API}/games/${id}/reviews`);
-        
         setReviews(reviewsForGame.data.payload);
       } catch (error) {
         return error
@@ -23,16 +21,15 @@ const FetchGameReviews = () => {
     };
     fetchAllReviewsForGame();
     
-  }, []);
+  }, [id]);
   return (
-    <section className="review-section">
-      <table>
-       
+    <article className="review-section">
+      <ul>
         {reviews.map((review) => { 
-       return <ShowGameReviews review={review} />;
+       return <ShowGameReviews review={review} key={review.id} />;
         })}
-      </table>
-    </section>
+      </ul>
+    </article>
   );
 };
 

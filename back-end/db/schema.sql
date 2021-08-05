@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS retro_games;
--- CREATE DATABASE retro_games;
+DROP DATABASE IF EXISTS retro_games;
+CREATE DATABASE retro_games;
 
--- \c retro_games;
+\c retro_games;
 
 
 

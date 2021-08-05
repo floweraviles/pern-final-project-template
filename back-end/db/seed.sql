@@ -1,4 +1,4 @@
--- \c retro_games;
+\c retro_games;
 INSERT INTO games (
         name,
         console,

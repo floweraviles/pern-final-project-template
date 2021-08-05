@@ -1,10 +1,11 @@
 const express = require("express");
+const { getAllReviewsForGame } = require("../queries/reviews");
+
 
 const reviewsForGame = express.Router({
   mergeParams: true,
 });
 
-const { getAllReviewsForGame } = require("../queries/reviews");
 reviewsForGame.get("/", async (req, res) => {
   const { game_id } = req.params;
   const gameReviews = await getAllReviewsForGame(game_id);

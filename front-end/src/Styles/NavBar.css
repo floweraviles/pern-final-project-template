@@ -3,7 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 60px;
-  height: 15vh;
+  height: 13vh;
   font-family: Maven Pro;
   border-bottom: 1px solid #fff;
   position: fixed;
@@ -78,7 +78,7 @@ nav a {
   position: fixed;
   background: linear-gradient(115.23deg, #000000 36.21%, #2c2828 93.01%);
   padding-top: 40px;
-  top: 15vh;
+  top: 13vh;
   left: -120%;
   transition: 850ms;
 }
