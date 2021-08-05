@@ -6,14 +6,14 @@ const ShowGameReviews = (props) => {
 
  
   return (
-    <tbody className="review-table-body">
-      <tr className="review-title">{review.title}</tr>
-      <tr>{review.content}</tr>
-      <tr>Reviewer: {review.reviewer}</tr>
-      <tr>Rating: {review.rating}</tr>
+    <li className="review-table-body">
+      <p className="review-title">{review.title}</p>
+      <p>{review.content}</p>
+      <p>Reviewer: {review.reviewer}</p>
+      <p>Rating: {review.rating}</p>
       <button>Edit Review</button>
       <button>Delete Review</button>
-    </tbody>
+    </li>
   );
 };
 

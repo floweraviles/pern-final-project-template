@@ -38,35 +38,38 @@ function GameDetails({ addGameToShoppingCart }) {
   };
 
   return (
-    <div className="list-container">
-      <h1>{game.name}</h1>
-      <h3>{game.console}</h3>
-      <h3>{game.price}</h3>
-      <h4>{game.release_date}</h4>
-      <h4>
-        {game.favorite ? (
-          <span>⭐️ Its a Favorite</span>
-        ) : (
-          <span className="notfav">X</span>
-        )}
-      </h4>
+    <div className="container">
       <img src={game.box_image} alt="game img" />
-      <Link to={`/games/${game.id}/edit`}>
-        <button className="edit" type="button">
-          Edit
-        </button>
-      </Link>
-      <button className="delete" onClick={handleDelete}>
-        Delete
-      </button>
-      <Link to={`/games`}>
-        <button className="back" type="button">
-          Go Back
-        </button>
-      </Link>
-      <h2>Game Reviews</h2>
-
-      <FetchGameReviews />
+      <div className="info">
+        <h1>{game.name}</h1>
+        <h3>Console: {game.console}</h3>
+        <h4>{game.release_date}</h4>
+        <h3>Price: USD ${game.price?.toFixed(2)}</h3>
+        <FetchGameReviews />
+        <h4>
+          {!game.favorite ? (
+            <span>❤️</span>
+          ) : (
+            <span className="notfav">💔</span>
+          )}
+        </h4>
+        <button onClick={() => addGameToShoppingCart(game)}>Add to Cart</button>
+        <div>
+          <Link to={`/games/${game.id}/edit`}>
+            <button className="edit" type="button">
+              Edit
+            </button>
+          </Link>
+          <button className="delete" onClick={handleDelete}>
+            Delete
+          </button>
+          <Link to={`/games`}>
+            <button className="back" type="button">
+              Back
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
