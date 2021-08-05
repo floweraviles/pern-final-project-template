@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 import ShowGameReviews from "./ShowGameReviews";
-import '../Styles/GameDetails.css'
 
 const API = apiURL();
 const FetchGameReviews = () => {
