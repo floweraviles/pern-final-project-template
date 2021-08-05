@@ -38,8 +38,8 @@ const GameEditForm = () => {
         res = await axios.get(`${API}/games/${id}`);
 
         setGame(res.data);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        return error
       }
     };
     fetchGameToEdit();
@@ -48,8 +48,8 @@ const GameEditForm = () => {
   const updateGame = async (gameToEdit, id) => {
     try {
       await axios.put(`${API}/games/${id}`, gameToEdit);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      return error
     }
   };
 

@@ -22,7 +22,7 @@ function GameNewForm() {
       await axios.post(`${API}/games`, newGame);
       history.push(`/games`);
     } catch (error) {
-      console.log(error);
+    return error;
     }
   };
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, withRouter, useHistory, useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
 import FetchGameReviews from "./FetchGameReviews";
-import '../Styles/GameDetails.css'
+import "../Styles/GameDetails.css";
 
 const API = apiURL();
 function GameDetails({ addGameToShoppingCart }) {
@@ -11,12 +11,11 @@ function GameDetails({ addGameToShoppingCart }) {
   let history = useHistory();
   const { id } = useParams();
 
-
   const deleteGame = async () => {
     try {
       await axios.delete(`${API}/games/${id}`);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      return error;
     }
   };
 
@@ -24,10 +23,10 @@ function GameDetails({ addGameToShoppingCart }) {
     const display = async () => {
       try {
         const res = await axios.get(`${API}/games/${id}`);
-        console.log(res);
+
         setgame(res.data);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        return error;
       }
     };
     display();
@@ -66,7 +65,7 @@ function GameDetails({ addGameToShoppingCart }) {
         </button>
       </Link>
       <h2>Game Reviews</h2>
-      
+
       <FetchGameReviews />
     </div>
   );
