@@ -1,152 +1,48 @@
-# PERN Final Project Template
+# Retro Games (PERN Project)
 
-- select `use this template`
-- clone this repo
+## Our Motivation
 
-## Getting Started
+We are four full-stack web developers motivated to create e-commerce website for retro video games because we understand it's underrepresentation in the video games market
 
+### Project Development
 
-### Project Structure
+1. back-end
 
-```
-├── README.md (what you are currently reading)
-├── back-end (a basic express app)
-├── front-end (a basic create-react-app)
-└── package.json (necessary boilerplate for heroku deployment )
-```
+- basic express app
+- connecting Postgres with PG promise
+- install dotenv
+- install cors
+- deploy to Heroku
 
-**NOTE:** - You will have 3 `package.json` files in this project
+2. front-end
 
-- **Top level** - necessary for heroku deployment: you don't need to do anything with this file, it is set up for you
-- **back-end** - everything to do with the express/postgres backend
-- **front-end** - everything to do with the create-react-app front-end
+- use react for front-end development
+  - use axios to make requests
+  - install react-router-dom
+  - deploy to Netlify
+  - styled with native CSS
 
-### `back-end` Set Up and Deployment to Heroku
+3. Routes
+   | Index | /games |
+   | Show | /games/:id |
+   | New | /games/new |
+   | Edit | /games/:id/edit |
+   | Delete | /games/:id |
 
-#### Basic App
+4. How to contribute
 
-**/back-end**
+- fork and clone repo
+- npm install
 
-- `cd back-end`
-- `npm install`
-- `touch .env`
+5. Deployment
+   [Heroku Link] [https://glacial-depths-73081.herokuapp.com/]
+   [Netlify Link] [https://tender-dubinsky-9a1ad2.netlify.app/]
 
-make sure you are on the same level as the `package.json` of the `back-end` directory
+<h3 align="">Languages and Tools:</h3>
+<p align="center"> <a href="https://expressjs.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="60" height="60"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="60" height="60"/> </a> <a href="https://nodejs.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="60" height="60"/> </a> <a href="https://www.postgresql.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="60" height="60"/> </a> <a href="https://reactjs.org/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="60" height="60"/> </a> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="70" height="70"/> </a></p>
 
-- `touch .env`
-
-```
-PORT=3333
-PG_HOST=localhost
-PG_PORT=5432
-PG_DATABASE=postgres
-PG_USER=postgres
-PG_PASSWORD=""
-```
-
-- `npm run db_init`
-- `npm run db_seed`
-
-Test app locally. If it does not work locally, it will not work on Heroku.
-
-Fix bugs.
-
-When ready:
-
-- `heroku create`
-- `git add .`
-- `git commit -m 'heroku deployment`
-- `git push heroku main` - if this does not work, go to heroku dashboard => deployment and add the remote
-
-ie `heroku git:remote -a <your-heroku-app-name>`
-
-Open your heroku app. You should see the `Hello, world!` message.
-
-#### Adding the Database on Heroku
-
-In the heroku dashboard, go to `Overview` choose `configure add ons`
-
-In the search bar `Quickly add add-ons` - search for `postgres` - choose `heroku postgres`
-
-- Choose hobby dev
-- Note: even though hobby dev is free, you may be required to provide a credit card
-- In new view, click on `heroku Postgres / attached as DATABASE` => Settings
-
-![](./assets/heroku-database-dash.png)
-
-You will need to make these key value pairs in your heroku app
-
-**IMPORTANT**
-The `keys` must match perfectly with what is in your `db/dbConfig.js` file and your local `.env`
-
-- Open a new tab/window and go to the main page of your heroku app choose settings
-- Reveal Config Variables
-- Add the variables
-
-**Note:** these are false credentials and given for example only:
-
-```
-PG_HOST=ec2-55-227-246-76.compute-1.amazonaws.com
-PG_PORT=5432
-PG_DATABASE=d9bq2bk2s4ilde
-PG_USER=bcwmtakzkmkdxr
-PG_PASSWORD=afb0a7a9396af1bac763154f5649e049ce280658bef0ded7efde6
-```
-
-![](./assets/heroku-config-vars.png)
-
-- make sure you are on the same directory level as your `package.json` of your `back-end` directory
-
-Go back to the heroku database view => settings
-
-- copy `Heroku CLI` (something like `heroku pg:psql postgresql-shaped-11685 --app mysterious-spires-49488`)
-- paste into your terminal
-
-- it should open a `pg shell`
-
-Run the following:
-
-- `\i ./db/schema.sql`
-  - success should say `CREATE TABLE`
-- `\i ./db/seed.sql`
-  - success should say `INSERT 0 7`
-- `\q`
-
-This will insert the test table with the days of the week.
-
-Later, when you have build out your app to have your schema and seed data, you will:
-
-- edit the `db/schema.sql` file to be your own
-- edit th `db/seed.sql` file to be your own
-- reopen this shell and rerun these commands.
-
-Note you should set up the
-
-### `front-end` Set Up
-
-**/front-end**
-
-- `cd front-end`
-- `npm install`
-
-- `npm start`
-
-**src/util/apiURL.js**
-
-Replace the placeholder heroku app with your heroku app URL that you set up earlier
-
-Make sure your back-end is still running. You should see an unordered list of the days of the week, coming from your back-end. If it does not work locally, it will not work when it is deployed. Keep debugging until it works
-
-Go to netlify, choose `New site from Git`
-
-- choose continuos deployment, GitHub.
-- configure the netlify app on GitHub
-
-Follow the prompts to add this project repo to Netlify
-Once, authorized, configure to launch app from
-
-- Base directory: `front-end`
-- Build command: `npm run build`
-- Publish directory: `build` (may appear as `front-end/build`)
-
-![](./assets/netlify-deploy-settings.png)
+📫 How to reach us
+- **jordanbobadillarosario@pursuit.org**
+- **itsfloweraviles@gmail.com**
+- **dalizcruz@pursuit.org**
+- **obaidrustemi@pursuit.org**
