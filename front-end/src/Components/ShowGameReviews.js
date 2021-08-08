@@ -1,18 +1,17 @@
 import React from "react";
-import '../Styles/GameDetails.css'
+import "../Styles/GameDetails.css";
 
-const ShowGameReviews = (props) => {
-  const { review } = props;
-
- 
+const ShowGameReviews = ({ review }) => {
   return (
-    <li className="review-table-body">
-      <p className="review-title">{review.title}</p>
-      <p>{review.content}</p>
-      <p>Reviewer: {review.reviewer}</p>
-      <p>Rating: {review.rating}</p>
-      <button>Edit Review</button>
-      <button>Delete Review</button>
+    <li>
+      <div>
+        <p className="review-title">{review.title}</p>
+        <p>{review.content}</p>
+        <p>Reviewer: {review.reviewer}</p>
+        <p>Rating: {review.rating}</p>
+        <button>Edit Review</button>
+        <button>Delete Review</button>
+      </div>
     </li>
   );
 };

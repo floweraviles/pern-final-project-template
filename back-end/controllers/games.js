@@ -13,6 +13,7 @@ const checkTypes = require("../helpers/checkTypes");
 games.use("/:game_id/reviews", reviewsForGameController);
 
 games.get("/", async (req, res) => {
+ 
   const allGames = await getAllGames();
   res.json(allGames);
 });

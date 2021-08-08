@@ -1,10 +1,20 @@
 const db = require("../db/dbConfig");
 
+const getAllReviews = async () => {
+    console.log("getAllReviews");
+  try {
+    const allReviews = await db.any("SELECT * FROM reviews");
+    return { success: true, payload: allReviews };
+  } catch (error) {
+    return { success: false, payload: error };
+  }
+};
 const getAllReviewsForGame = async (gameId) => {
+  console.log("getAllReviewsForGame");
   try {
     const allReviewsForGame = await db.any(
-      `SELECT * FROM reviews WHERE game_id = $1`
-      ,gameId
+      `SELECT * FROM reviews WHERE game_id = $1`,
+      gameId
     );
     return { success: true, payload: allReviewsForGame };
   } catch (err) {
@@ -13,9 +23,13 @@ const getAllReviewsForGame = async (gameId) => {
 };
 
 const newReviewForGame = async (review, gameId) => {
+<<<<<<< HEAD
+=======
+  console.log("newReviewForGame");
+>>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
   const { reviewer, title, content, rating } = review;
   try {
-    const created = await db.one(
+    const newReview = await db.one(
       `
           INSERT INTO reviews (reviewer, title, content, rating, game_id) 
           VALUES ($1, $2, $3, $4, $5)
@@ -23,15 +37,23 @@ const newReviewForGame = async (review, gameId) => {
       `,
       [reviewer, title, content, rating, gameId]
     );
+<<<<<<< HEAD
     return { success: true, payload: created };
   } catch (e) {
     console.log(e);
     return { success: false, payload: e };
+=======
+
+    return { success: true, payload: newReview };
+  } catch (error) {
+    console.log(error);
+    return { success: false, payload: error };
+>>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
   }
 };
 
 const updateReview = async (id, review) => {
-  console.log("updateReview")
+  console.log("updateReview");
   const { reviewer, title, content, rating, game_id } = review;
   try {
     const res = await db.one(
@@ -50,7 +72,7 @@ const updateReview = async (id, review) => {
 };
 
 const deleteReview = async (id) => {
-  console.log("deleteReview")
+  console.log("deleteReview");
   try {
     const deletedReview = await db.one(
       `
@@ -68,6 +90,7 @@ const deleteReview = async (id) => {
 };
 
 module.exports = {
+<<<<<<< HEAD
 
     getAllReviewsForGame,
     newReviewForGame,
@@ -75,3 +98,11 @@ module.exports = {
     deleteReview,
 }
 
+=======
+  getAllReviewsForGame,
+  getAllReviews,
+  newReviewForGame,
+  updateReview,
+  deleteReview,
+};
+>>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
