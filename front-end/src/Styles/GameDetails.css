@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.review-section table { 
+.review-div ul { 
     display: flex;
     justify-content: center;
     color: white;

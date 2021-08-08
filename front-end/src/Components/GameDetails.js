@@ -2,12 +2,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, withRouter, useHistory, useParams } from "react-router-dom";
 import { apiURL } from "../util/apiURL";
-import FetchGameReviews from "./FetchGameReviews";
+import GameReviews from "./GameReviews";
+
 import "../Styles/GameDetails.css";
 
 const API = apiURL();
-function GameDetails({ addGameToShoppingCart }) {
-  const [game, setgame] = useState({});
+function GameDetails({
+  addGameToShoppingCart
+ 
+}) {
+  const [game, setGame] = useState({});
+  const [reviews, setReviews] = useState([]);
   let history = useHistory();
   const { id } = useParams();
 
@@ -24,12 +29,22 @@ function GameDetails({ addGameToShoppingCart }) {
       try {
         const res = await axios.get(`${API}/games/${id}`);
 
-        setgame(res.data);
+        setGame(res.data);
+      } catch (error) {
+        return error;
+      }
+    };
+    const fetchAllReviewsForGame = async () => {
+      try {
+        const reviewsForGame = await axios.get(`${API}/games/${id}/reviews`);
+  
+        setReviews(reviewsForGame.data.payload);
       } catch (error) {
         return error;
       }
     };
     display();
+    fetchAllReviewsForGame();
   }, [id]);
 
   const handleDelete = async () => {
@@ -65,8 +80,12 @@ function GameDetails({ addGameToShoppingCart }) {
         </button>
       </Link>
       <h2>Game Reviews</h2>
-
-      <FetchGameReviews />
+      <Link to={`/games/${id}/newreview`}>
+        <div>
+          <button>Add Your Review</button>
+        </div>
+      </Link>
+      <GameReviews reviews={reviews} />
     </div>
   );
 }

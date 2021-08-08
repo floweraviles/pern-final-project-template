@@ -14,7 +14,7 @@ const GamesList = ({ addGameToShoppingCart }) => {
         const res = await axios.get(`${API}/games`);
         setGames(res.data);
       } catch (error) {
-        console.log(error);
+        return error;
       }
     };
     fetchGames();

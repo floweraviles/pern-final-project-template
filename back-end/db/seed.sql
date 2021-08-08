@@ -1,4 +1,4 @@
--- \c retro_games;
+\c retro_games;
 INSERT INTO games (
         name,
         console,
@@ -404,4 +404,5 @@ VALUES (
 VALUES
 (1, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3),
 (2, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3),
-(3, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3);
+(3, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3),
+(2, 'Evan', 'My Favorite', 'This website crushes it when it comes to awesome explainations', 3);
