@@ -1,6 +1,5 @@
 import ReviewNewForm from "../Components/ReviewNewForm";
 
-
 const  NewReview = () => {
   return (
     <section className="game-edit-section">

@@ -9,19 +9,26 @@
   margin: 40px;
   font-family: Maven Pro;
   text-transform: uppercase;
-  height: 90vh;
+  height: 88vh;
 }
 
 .game-edit-section h2 {
   margin-bottom: 40px;
 }
 
+.game-edit-section .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .game-edit-form label {
   margin: 10px 0;
 }
 
-.game-edit-form input {
-  width: 50vw;
+.game-edit-form input, textarea {
+  width: 40vw;
   padding: 6px;
   margin-left: 30px;
   color: #0d3f95;
@@ -45,4 +52,18 @@
   border-radius: 4px;
   cursor: pointer;
   transition: transform 350ms;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 8vw;
+}
+
+.presentation img {
+  width: 100%;
+  height: 400px;
+  max-width: 40vw;
+  object-fit: contain;
 }

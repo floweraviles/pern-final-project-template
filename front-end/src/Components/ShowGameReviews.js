@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
 import "../Styles/GameDetails.css";
@@ -7,8 +7,8 @@ import "../Styles/GameDetails.css";
 const API = apiURL();
 
 const ShowGameReviews = ({ review, handleDeleteReview }) => {
-  let history = useHistory();
   const { id } = useParams();
+
   const deleteReview = async () => {
     try {
       await axios.delete(`${API}/games/${id}/reviews/${review.id}`);
