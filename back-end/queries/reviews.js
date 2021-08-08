@@ -1,36 +1,18 @@
 const db = require("../db/dbConfig");
 
 const getAllReviewsForGame = async (gameId) => {
-
-  console.log("getAllReviewsForGame")
   try {
     const allReviewsForGame = await db.any(
-
       `SELECT * FROM reviews WHERE game_id = $1`
       ,gameId
-
     );
     return { success: true, payload: allReviewsForGame };
   } catch (err) {
-    console.log(err);
     return { success: false, payload: err };
   }
 };
 
-
-const getReview = async () => {
-  console.log("getReview")
-  try {
-      const review = await db.any(`SELECT * FROM reviews`);
-      return { success: true, payload: review };
-  } catch (e) {
-    console.log(e);
-    return { success: false, payload: e };
-  }
-};
-
 const newReviewForGame = async (review, gameId) => {
-  console.log("newReviewForGame")
   const { reviewer, title, content, rating } = review;
   try {
     const created = await db.one(
@@ -41,7 +23,6 @@ const newReviewForGame = async (review, gameId) => {
       `,
       [reviewer, title, content, rating, gameId]
     );
-
     return { success: true, payload: created };
   } catch (e) {
     console.log(e);
@@ -89,7 +70,6 @@ const deleteReview = async (id) => {
 module.exports = {
 
     getAllReviewsForGame,
-    getReview,
     newReviewForGame,
     updateReview,
     deleteReview,

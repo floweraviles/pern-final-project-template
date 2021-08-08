@@ -17,11 +17,14 @@ const getGame = async (id) => {
   }
 };
 
-// UPDATE GAME
 const updateGame = async (id, game) => {
   try {
-    const query =
-      "UPDATE games SET name=$1, console=$2, price=$3, release_date=$4, favorites=$5, box_image=$6 WHERE id=$7 RETURNING *";
+    const query = `
+      UPDATE games 
+      SET name=$1, console=$2, price=$3, release_date=$4, favorites=$5, box_image=$6 
+      WHERE id=$7 
+      RETURNING *
+    `;
     const { name, console, price, release_date, favorites, box_image } = game;
     const updatedGame = await db.one(query, [
       name,

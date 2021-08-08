@@ -23,8 +23,7 @@ function GameDetails({ addGameToShoppingCart }) {
     const display = async () => {
       try {
         const res = await axios.get(`${API}/games/${id}`);
-
-        setgame(res.data);
+        setgame(res.data.payload);
       } catch (error) {
         return error;
       }
