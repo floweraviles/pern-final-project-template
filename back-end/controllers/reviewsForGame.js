@@ -1,4 +1,6 @@
 const express = require("express");
+const { getAllReviewsForGame } = require("../queries/reviews");
+
 
 const reviewsForGame = express.Router({
   mergeParams: true,

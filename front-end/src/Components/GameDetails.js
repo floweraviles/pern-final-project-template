@@ -53,18 +53,7 @@ function GameDetails({
   };
 
   return (
-    <div className="list-container">
-      <h1>{game.name}</h1>
-      <h3>{game.console}</h3>
-      <h3>{game.price}</h3>
-      <h4>{game.release_date}</h4>
-      <h4>
-        {game.favorite ? (
-          <span>⭐️ Its a Favorite</span>
-        ) : (
-          <span className="notfav">X</span>
-        )}
-      </h4>
+    <div className="container">
       <img src={game.box_image} alt="game img" />
       <Link to={`/games/${game.id}/edit`}>
         <button className="edit" type="button">
