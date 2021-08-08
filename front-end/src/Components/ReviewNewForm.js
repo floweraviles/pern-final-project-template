@@ -16,19 +16,11 @@ const ReviewNewForm = () => {
     rating: "",
   });
 
-  const [game, setGame] = useState({
-    name: "",
-    console: "",
-    price: 0,
-    release_date: 0,
-    favorites: null,
-    box_image: "",
-  });
+  const [game, setGame] = useState({});
 
   const addGameReview = async (newGameReview) => {
     try {
       await axios.post(`${API}/games/${id}/reviews`, newGameReview);
-      
     } catch (error) {
       return error;
     }
@@ -53,7 +45,6 @@ const ReviewNewForm = () => {
       try {
         let res;
         res = await axios.get(`${API}/games/${id}`);
-
         setGame(res.data.payload);
       } catch (error) {
         return error;
@@ -63,19 +54,11 @@ const ReviewNewForm = () => {
   }, [id]);
 
   return (
-    <div>
-      <div>
-        <img src={game.box_image} alt="game-boxart" />
-      </div>
-      <div>
-        <p>{game.name}</p>
-        <p>{game.console}</p>
-        <p>{game.release_date}</p>
-      </div>
+    <div className="box">
       <form className="game-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="game-rating">Game Rating (out of 5):</label>
         <input
-          id="rating"
+          id="game-rating"
           type="number"
           value={newReview.rating}
           onChange={handleNumChange}
@@ -87,7 +70,7 @@ const ReviewNewForm = () => {
 
         <label htmlFor="review-title">Review Title:</label>
         <input
-          id="title"
+          id="review-title"
           value={newReview.title.toUpperCase()}
           type="text"
           onChange={handleTextInput}
@@ -100,7 +83,7 @@ const ReviewNewForm = () => {
           name="w3review"
           rows="4"
           cols="50"
-          id="content"
+          id="review-content"
           type="text"
           value={newReview.content}
           onChange={handleTextInput}
@@ -118,6 +101,9 @@ const ReviewNewForm = () => {
         <br />
         <button>Submit</button>
       </form>
+      <div className="presentation">
+        <img src={game.box_image} alt="game-box-art" />
+      </div>
     </div>
   );
 };

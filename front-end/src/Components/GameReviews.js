@@ -9,7 +9,7 @@ const GameReviews = ({ reviews, handleDeleteReview }) => {
     <div className="review-div">
       <div className="review-title">
       <h2>Reviews</h2>
-      <Link to={`/games/${id}/newreview`}>
+      <Link to={`/games/${id}/new_review`}>
         <button>Add Your Review</button>
       </Link>
       </div>
