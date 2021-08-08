@@ -1,0 +1,48 @@
+.game-edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.game-edit-section {
+  color: white;
+  margin: 40px;
+  font-family: Maven Pro;
+  text-transform: uppercase;
+  height: 90vh;
+}
+
+.game-edit-section h2 {
+  margin-bottom: 40px;
+}
+
+.game-edit-form label {
+  margin: 10px 0;
+}
+
+.game-edit-form input {
+  width: 50vw;
+  padding: 6px;
+  margin-left: 30px;
+  color: #0d3f95;
+  font-family: Maven Pro;
+}
+
+.game-edit-form input[type="checkbox"] {
+  align-self: flex-start;
+  width: 20px;
+}
+
+.game-edit-form button {
+  color: #fff;
+  background-color: #104fbd;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  font-family: Maven Pro;
+  margin-top: 40px;
+  border: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 350ms;
+}

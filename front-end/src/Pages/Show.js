@@ -1,10 +1,11 @@
 import GameDetails from "../Components/GameDetails";
 
-function Show() {
+function Show({ addGameToShoppingCart }) {
   return (
-    <div className="show">
-      <GameDetails />
-    </div>
+    <section className="Show">
+      <h1>Game Details</h1>
+      <GameDetails addGameToShoppingCart={addGameToShoppingCart} />
+    </section>
   );
 }
 

@@ -1,0 +1,16 @@
+.Error {
+  margin: 40px;
+}
+
+.Error h1 {
+  color: #fff;
+  font-family: Maven Pro;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+@media screen and (max-width: 660px) {
+  .Error h1 {
+    text-align: center;
+  }
+}
