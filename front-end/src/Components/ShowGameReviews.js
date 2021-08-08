@@ -1,5 +1,7 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+
+import { useHistory, useParams, Link } from "react-router-dom";
+
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
 import "../Styles/GameDetails.css";
@@ -30,7 +32,9 @@ const ShowGameReviews = ({ review, handleDeleteReview }) => {
         <h4>by {review.reviewer}</h4>
         <p>{review.content}</p>
         <p>Rating: {review.rating}</p>
+        <Link to={`/games/${id}/reviews/${review.id}/edit`}>
         <button>Edit Review</button>
+        </Link>
         <button onClick={handleDelete}>Delete Review</button>
       </div>
       <hr />
