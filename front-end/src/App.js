@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
+
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
 import Home from "./Pages/Home";
@@ -8,6 +9,7 @@ import New from "./Pages/New";
 import Show from "./Pages/Show";
 import Cart from "./Components/Cart";
 import About from "./Pages/About";
+import NewReview from "./Pages/NewReview";
 
 import NavBar from "./Components/NavBar";
 
@@ -46,6 +48,9 @@ function App() {
             </Route>
             <Route exact path="/games/:id">
               <Show addGameToShoppingCart={addGameToShoppingCart} />
+            </Route>
+            <Route exact path="/games/:id/newreview">
+              <NewReview />
             </Route>
             <Route path="/games/:id/edit">
               <Edit />
