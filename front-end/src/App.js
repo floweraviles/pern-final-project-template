@@ -10,6 +10,7 @@ import Show from "./Pages/Show";
 import Cart from "./Components/Cart";
 import About from "./Pages/About";
 import NewReview from "./Pages/NewReview";
+import EditReview from "./Pages/EditReview";
 
 import NavBar from "./Components/NavBar";
 
@@ -51,6 +52,9 @@ function App() {
             </Route>
             <Route exact path="/games/:id/newreview">
               <NewReview />
+            </Route>
+            <Route exact path="/games/:id/reviews/:review_id/edit">
+              <EditReview />
             </Route>
             <Route path="/games/:id/edit">
               <Edit />

@@ -22,6 +22,16 @@ const getAllReviewsForGame = async (gameId) => {
   }
 };
 
+const getReviewForGame = async (id) => {
+  console.log("getSingleReviewForGame")
+  try {
+const singleReviewForGame = await db.one(`SELECT * FROM reviews WHERE id = $1`, id)
+return { success: true, payload: singleReviewForGame}
+  } catch (error) {
+    return { success: false, payload: error }
+  }
+}
+
 const newReviewForGame = async (review, gameId) => {
   console.log("newReviewForGame");
   const { reviewer, title, content, rating } = review;
@@ -46,7 +56,7 @@ const updateReview = async (id, review) => {
   console.log("updateReview");
   const { reviewer, title, content, rating, game_id } = review;
   try {
-    const res = await db.one(
+    const updatedReview = await db.one(
       `
           UPDATE reviews 
           SET reviewer = $1, title = $2, content = $3, rating = $4, game_id = $5
@@ -55,9 +65,9 @@ const updateReview = async (id, review) => {
       `,
       [reviewer, title, content, rating, game_id, id]
     );
-    return { success: true, payload: res };
-  } catch (e) {
-    return { success: false, payload: e };
+    return { success: true, payload: updatedReview };
+  } catch (error) {
+    return { success: false, payload: error };
   }
 };
 
@@ -85,4 +95,5 @@ module.exports = {
   newReviewForGame,
   updateReview,
   deleteReview,
+  getReviewForGame,
 };
