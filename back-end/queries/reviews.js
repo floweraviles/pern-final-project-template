@@ -23,10 +23,7 @@ const getAllReviewsForGame = async (gameId) => {
 };
 
 const newReviewForGame = async (review, gameId) => {
-<<<<<<< HEAD
-=======
   console.log("newReviewForGame");
->>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
   const { reviewer, title, content, rating } = review;
   try {
     const newReview = await db.one(
@@ -37,18 +34,11 @@ const newReviewForGame = async (review, gameId) => {
       `,
       [reviewer, title, content, rating, gameId]
     );
-<<<<<<< HEAD
-    return { success: true, payload: created };
-  } catch (e) {
-    console.log(e);
-    return { success: false, payload: e };
-=======
 
     return { success: true, payload: newReview };
   } catch (error) {
     console.log(error);
     return { success: false, payload: error };
->>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
   }
 };
 
@@ -90,19 +80,9 @@ const deleteReview = async (id) => {
 };
 
 module.exports = {
-<<<<<<< HEAD
-
-    getAllReviewsForGame,
-    newReviewForGame,
-    updateReview,
-    deleteReview,
-}
-
-=======
   getAllReviewsForGame,
   getAllReviews,
   newReviewForGame,
   updateReview,
   deleteReview,
 };
->>>>>>> 6bf0622fb021b4bf8affa8d6aa570f1fda90ff76
