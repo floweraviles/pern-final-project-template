@@ -2,7 +2,7 @@ import ShowGameReviews from "./ShowGameReviews";
 import "../Styles/GameDetails.css";
 import { Link, useParams } from "react-router-dom";
 
-const GameReviews = ({ reviews }) => {
+const GameReviews = ({ reviews, handleDeleteReview }) => {
  const {id} = useParams()
 
   return (
@@ -16,7 +16,7 @@ const GameReviews = ({ reviews }) => {
       <hr/>
       <ul>
         {reviews.map((review) => {
-          return <ShowGameReviews review={review} key={review.id} />;
+          return <ShowGameReviews review={review} key={review.id} handleDeleteReview={handleDeleteReview} />;
         })}
       </ul>
     </div>

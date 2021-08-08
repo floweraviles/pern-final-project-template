@@ -13,6 +13,14 @@ function GameDetails({ addGameToShoppingCart }) {
   let history = useHistory();
   const { id } = useParams();
 
+  const handleDeleteReview = (review_id) => {
+    setReviews(
+      reviews.filter((review) => {
+        return review.id !== review_id;
+      })
+    );
+  };
+
   const deleteGame = async () => {
     try {
       await axios.delete(`${API}/games/${id}`);
@@ -34,7 +42,6 @@ function GameDetails({ addGameToShoppingCart }) {
     const fetchAllReviewsForGame = async () => {
       try {
         const reviewsForGame = await axios.get(`${API}/games/${id}/reviews`);
-
         setReviews(reviewsForGame.data.payload);
       } catch (error) {
         return error;
@@ -85,7 +92,7 @@ function GameDetails({ addGameToShoppingCart }) {
           </div>
         </div>
       </div>
-      <GameReviews reviews={reviews} />
+      <GameReviews reviews={reviews} handleDeleteReview={handleDeleteReview}/>
     </article>
   );
 }

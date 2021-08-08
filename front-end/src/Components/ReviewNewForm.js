@@ -54,7 +54,7 @@ const ReviewNewForm = () => {
         let res;
         res = await axios.get(`${API}/games/${id}`);
 
-        setGame(res.data);
+        setGame(res.data.payload);
       } catch (error) {
         return error;
       }
