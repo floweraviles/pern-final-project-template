@@ -75,7 +75,7 @@ function GameDetails({ addGameToShoppingCart }) {
           <button onClick={() => addGameToShoppingCart(game)}>
             Add to Cart
           </button>
-          <div>
+          <div className="btns">
             <Link to={`/games/${game.id}/edit`}>
               <button className="edit" type="button">
                 Edit
