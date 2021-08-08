@@ -13,6 +13,8 @@
 .About p {
   text-align: justify;
   font-size: 20px;
+
+  line-height: 1.8rem;
   margin-bottom: 60px;
   background: radial-gradient(
     299.2% 165.53% at 0% 2.87%,

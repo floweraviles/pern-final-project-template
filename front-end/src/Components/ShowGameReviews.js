@@ -5,13 +5,14 @@ const ShowGameReviews = ({ review }) => {
   return (
     <li>
       <div>
-        <p className="review-title">{review.title}</p>
+        <h3>{review.title}</h3>
+        <h4>by {review.reviewer}</h4>
         <p>{review.content}</p>
-        <p>Reviewer: {review.reviewer}</p>
         <p>Rating: {review.rating}</p>
         <button>Edit Review</button>
         <button>Delete Review</button>
       </div>
+      <hr />
     </li>
   );
 };

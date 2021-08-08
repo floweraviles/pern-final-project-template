@@ -25,3 +25,8 @@ body{
 section {
   padding-top: 80px;
 }
+
+hr {
+  margin: 20px 0;
+  width: 100%;
+}
