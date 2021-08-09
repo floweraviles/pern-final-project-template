@@ -9,7 +9,7 @@
   margin: 40px;
   font-family: Maven Pro;
   text-transform: uppercase;
-  height: 88vh;
+  height: 100%;
 }
 
 .game-edit-section h2 {
@@ -18,6 +18,7 @@
 
 .game-edit-section .box {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -56,7 +57,7 @@
 
 .presentation {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   width: 100%;
   margin-left: 8vw;
 }
@@ -66,4 +67,34 @@
   height: 400px;
   max-width: 40vw;
   object-fit: contain;
+}
+
+@media screen and (max-width: 680px) {
+  .game-edit-section {
+    height: 100%;
+  }
+
+  .game-edit-section .box {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .presentation {
+    margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .presentation img {
+    width: 100%;
+    height: 600px;
+    max-width: 100vw;
+    object-fit: contain;
+  }
+
+  .game-edit-form input, textarea {
+    width: 80vw;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }

@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
-
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
 import Home from "./Pages/Home";
@@ -11,7 +10,6 @@ import Cart from "./Components/Cart";
 import About from "./Pages/About";
 import NewReview from "./Pages/NewReview";
 import EditReview from "./Pages/EditReview";
-
 import NavBar from "./Components/NavBar";
 
 function App() {
@@ -32,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        <NavBar shoppingCart={shoppingCart}/>
         <main>
           <Switch>
             <Route exact path="/">

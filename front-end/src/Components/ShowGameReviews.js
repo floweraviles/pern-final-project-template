@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useHistory, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
@@ -20,10 +20,8 @@ const ShowGameReviews = ({ review, handleDeleteReview }) => {
   };
 
   const handleDelete = async () => {
-
     await deleteReview();
-    handleDeleteReview(review.id)
-  
+    handleDeleteReview(review.id);
   };
   return (
     <li>
@@ -32,10 +30,12 @@ const ShowGameReviews = ({ review, handleDeleteReview }) => {
         <h4>by {review.reviewer}</h4>
         <p>{review.content}</p>
         <p>Rating: {review.rating}</p>
-        <Link to={`/games/${id}/reviews/${review.id}/edit`}>
-        <button>Edit Review</button>
-        </Link>
-        <button onClick={handleDelete}>Delete Review</button>
+        <div className="buttons">
+          <Link to={`/games/${id}/reviews/${review.id}/edit`}>
+            <button>Edit Review</button>
+          </Link>
+          <button onClick={handleDelete}>Delete Review</button>
+        </div>
       </div>
       <hr />
     </li>

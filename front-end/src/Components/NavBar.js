@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../Styles/NavBar.css";
 
-export default function NavBar() {
+export default function NavBar({ shoppingCart }) {
   const [menu, setMenu] = useState(false);
 
   const showMenu = () => {
@@ -36,6 +36,7 @@ export default function NavBar() {
         </div>
         <NavLink to="/cart" className="cart-icon">
           <i className="fas fa-shopping-cart"></i>
+          <h4>{shoppingCart.length}</h4>
         </NavLink>
       </nav>
       <ul className={menu ? "menu show" : "menu"} onClick={showMenu}>

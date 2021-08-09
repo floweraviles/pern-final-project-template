@@ -3,11 +3,27 @@
   text-transform: uppercase;
   margin: 60px;
   text-align: start;
-  height: 85vh;
+  height: 100vh;
+}
+
+.Home .call {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+
+.call img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  object-fit: contain;
 }
 
 .Home h2 {
   font-family: Maven Pro;
+  text-align: center;
+  margin-top: 60px;
 }
 
 .Home h1 {
@@ -27,11 +43,23 @@
   border-radius: 4px;
   cursor: pointer;
   transition: transform 350ms;
-  width: 250px;
+  width: 400px;
+  margin-bottom: 80px;
 }
 
 .Home button:hover {
   transform: translateY(-10px);
+}
+
+@media screen and (max-width: 940px) {
+  .Home .call {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .Home h2 {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 660px) {

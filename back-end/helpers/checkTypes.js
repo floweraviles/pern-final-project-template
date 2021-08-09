@@ -1,4 +1,4 @@
-const checkTypes = (req) => {
+const checkGamesTypes = (req) => {
     if (typeof req.name === "string" &&
     typeof req.console === "string" &&
     typeof req.price === "number" &&
@@ -10,4 +10,17 @@ const checkTypes = (req) => {
     }
 }
 
-module.exports = checkTypes
+const checkReviewTypes = (req) => {
+    if (typeof req.title === "string" &&
+        typeof req.content === "string" &&
+        typeof req.reviewer === "string" &&
+        typeof req.rating === "number"
+    ) {
+        return true
+    }
+}
+
+module.exports = {
+    checkGamesTypes,
+    checkReviewTypes
+}

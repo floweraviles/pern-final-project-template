@@ -58,7 +58,7 @@ const ReviewNewForm = () => {
       <form className="game-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="game-rating">Game Rating (out of 5):</label>
         <input
-          id="game-rating"
+          id="rating"
           type="number"
           value={newReview.rating}
           onChange={handleNumChange}
@@ -68,9 +68,9 @@ const ReviewNewForm = () => {
           required
         />
 
-        <label htmlFor="review-title">Review Title:</label>
+        <label htmlFor="title">Review Title:</label>
         <input
-          id="review-title"
+          id="title"
           value={newReview.title.toUpperCase()}
           type="text"
           onChange={handleTextInput}
@@ -78,12 +78,12 @@ const ReviewNewForm = () => {
           required
         />
 
-        <label htmlFor="review-content">Review:</label>
+        <label htmlFor="content">Review:</label>
         <textarea
           name="w3review"
           rows="4"
           cols="50"
-          id="review-content"
+          id="content"
           type="text"
           value={newReview.content}
           onChange={handleTextInput}

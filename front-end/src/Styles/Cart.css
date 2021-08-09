@@ -3,7 +3,7 @@
   font-family: Maven Pro;
   color: #fff;
   text-transform: uppercase;
-  height: 90vh;
+  height: 100%;
 }
 
 .Cart h1 {
@@ -43,7 +43,7 @@
 .Cart ul {
   width: 80%;
   height: 100%;
-  max-height: 50vh;
+  max-height: 65vh;
   list-style: none;
   overflow-x: hidden;
   overflow-y: auto;

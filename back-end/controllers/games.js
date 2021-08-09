@@ -8,7 +8,7 @@ const {
   deleteGame,
   updateGame,
 } = require("../queries/games");
-const checkTypes = require("../helpers/checkTypes");
+const {checkGamesTypes} = require("../helpers/checkTypes");
 
 games.use("/:game_id/reviews", reviewsForGameController);
 
@@ -22,7 +22,7 @@ games.post("/", async (req, res) => {
   try {
     req.body.box_image ||= "https://dummyimage.com/300x400/000/fff.png&text=No+Image"
     const result = await createGame(req.body);
-    if (checkTypes(req.body)) {
+    if (checkGamesTypes(req.body)) {
       res.json({success: true, payload: result});
     } else {
       throw newGame
@@ -50,7 +50,7 @@ games.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const updatedGame = await updateGame(id, req.body);
-    if (checkTypes(req.body)) {
+    if (checkGamesTypes(req.body)) {
       res.json({ success: true, payload: updatedGame });
     } else {
       throw updateGame

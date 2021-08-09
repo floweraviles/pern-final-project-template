@@ -66,8 +66,20 @@ nav a {
   cursor: pointer;
 }
 
+.cart-icon h4 {
+  position: absolute;
+  top: 25px;
+  right: 95px;
+  border: none;
+  border-radius: 50%;
+  background-color: #104fbd;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
 .menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   font-family: Maven Pro;
@@ -108,5 +120,13 @@ nav a {
   nav div i {
     display: block;
     opacity: 1;
+  }
+
+  .cart-icon h4 {
+    right: 55px;
+  }
+
+  .menu {
+    display: flex;
   }
 }
