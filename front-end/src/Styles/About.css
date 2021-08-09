@@ -58,4 +58,8 @@
   .About div {
     margin-right: 0;
   }
+
+  .About p {
+    padding: 20px;
+  }
 }

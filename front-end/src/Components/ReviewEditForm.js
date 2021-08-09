@@ -41,10 +41,7 @@ const GameEditForm = () => {
       try {
         let res;
         res = await axios.get(`${API}/games/${id}/reviews/${review_id}`);
-
         setReview(res.data.payload);
-
-        
       } catch (error) {
         return error
       }
@@ -62,7 +59,7 @@ const GameEditForm = () => {
       fetchGameToReview()
       fetchGameReviewToEdit();
       
-  }, [id]);
+  }, [id, review_id]);
 
   const updateReview = async (reviewToEdit, id) => {
     try {
@@ -78,15 +75,7 @@ const GameEditForm = () => {
     history.push(`/games/${id}`);
   };
   return (
-    <div>
-      <div>
-        <img src={game.box_image} alt="game-boxart" />
-      </div>
-      <div>
-        <p>{game.name}</p>
-        <p>{game.console}</p>
-        <p>{game.release_date}</p>
-      </div>
+    <div className="box">
       <form className="game-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="game-rating">Game Rating (out of 5):</label>
         <input
@@ -133,6 +122,9 @@ const GameEditForm = () => {
         <br />
         <button>Submit</button>
       </form>
+      <div className="presentation">
+        <img src={game.box_image} alt="game-boxart" />
+      </div>
     </div>
   );
 };

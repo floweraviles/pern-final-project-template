@@ -32,13 +32,13 @@ const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
       <div className="box">
         {shoppingCart.length ? (
           <ul>
-            {shoppingCart.map((item) => {
+            {shoppingCart.map((item, index) => {
               return (
-                <li key={item.id}>
+                <li key={index}>
                   <img src={item.box_image} alt="video_game_img" />
                   <div>
                     <h2>{item.name}</h2>
-                    <h2>Price: USD ${item.price}</h2>
+                    <h2>Price: USD ${item.price.toFixed(2)}</h2>
                     <button onClick={() => deleteShoppingCartItem(item.id)}>
                       Delete
                     </button>

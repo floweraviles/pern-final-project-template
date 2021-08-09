@@ -1,39 +1,30 @@
 const db = require("../db/dbConfig");
 
-const getAllReviews = async () => {
-    console.log("getAllReviews");
-  try {
-    const allReviews = await db.any("SELECT * FROM reviews");
-    return { success: true, payload: allReviews };
-  } catch (error) {
-    return { success: false, payload: error };
-  }
-};
 const getAllReviewsForGame = async (gameId) => {
-  console.log("getAllReviewsForGame");
   try {
     const allReviewsForGame = await db.any(
       `SELECT * FROM reviews WHERE game_id = $1`,
       gameId
     );
-    return { success: true, payload: allReviewsForGame };
-  } catch (err) {
-    return { success: false, payload: err };
+    return allReviewsForGame;
+  } catch (error) {
+    return error;
   }
 };
 
 const getReviewForGame = async (id) => {
-  console.log("getSingleReviewForGame")
   try {
-const singleReviewForGame = await db.one(`SELECT * FROM reviews WHERE id = $1`, id)
-return { success: true, payload: singleReviewForGame}
+    const singleReviewForGame = await db.one(
+      `SELECT * FROM reviews WHERE id = $1`,
+      id
+    );
+    return singleReviewForGame ;
   } catch (error) {
-    return { success: false, payload: error }
+    return error;
   }
-}
+};
 
 const newReviewForGame = async (review, gameId) => {
-  console.log("newReviewForGame");
   const { reviewer, title, content, rating } = review;
   try {
     const newReview = await db.one(
@@ -45,15 +36,13 @@ const newReviewForGame = async (review, gameId) => {
       [reviewer, title, content, rating, gameId]
     );
 
-    return { success: true, payload: newReview };
+    return newReview;
   } catch (error) {
-    console.log(error);
-    return { success: false, payload: error };
+    return error;
   }
 };
 
 const updateReview = async (id, review) => {
-  console.log("updateReview");
   const { reviewer, title, content, rating, game_id } = review;
   try {
     const updatedReview = await db.one(
@@ -65,14 +54,13 @@ const updateReview = async (id, review) => {
       `,
       [reviewer, title, content, rating, game_id, id]
     );
-    return { success: true, payload: updatedReview };
+    return updatedReview ;
   } catch (error) {
-    return { success: false, payload: error };
+    return error;
   }
 };
 
 const deleteReview = async (id) => {
-  console.log("deleteReview");
   try {
     const deletedReview = await db.one(
       `
@@ -82,16 +70,14 @@ const deleteReview = async (id) => {
       `,
       id
     );
-    return { success: true, payload: deletedReview };
-  } catch (e) {
-    console.log(e);
-    return { success: false, payload: e };
+    return deletedReview;
+  } catch (error) {
+    return error ;
   }
 };
 
 module.exports = {
   getAllReviewsForGame,
-  getAllReviews,
   newReviewForGame,
   updateReview,
   deleteReview,

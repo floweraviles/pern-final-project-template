@@ -4,10 +4,12 @@
   text-transform: uppercase;
   margin: 40px;
 }
+
 .Show h1 {
   font-size: 28px;
   margin-bottom: 40px;
 }
+
 .container {
   display: flex;
   flex-direction: row;
@@ -21,12 +23,14 @@
   border-radius: 4px;
   padding: 40px;
 }
+
 .container img {
   width: 100%;
   height: auto;
   max-width: 350px;
   object-fit: cover;
 }
+
 .container .info {
   margin-left: 40px;
   margin-top: 0;
@@ -35,6 +39,10 @@
 .Show h4 {
   color: #777;
   margin-bottom: 40px;
+}
+
+.info {
+  width: 100%;
 }
 
 .info button {
@@ -48,11 +56,18 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 .info div {
   margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
+}
+
+.btns a,
+.delete {
+  margin-right: 10px;
+  margin-bottom: 0;
 }
 .info div button {
   color: #0d3f95;
@@ -65,7 +80,7 @@
   cursor: pointer;
 }
 
-.review-div{
+.review-div {
   margin-top: 40px;
   background: radial-gradient(
     299.2% 165.53% at 0% 2.87%,
@@ -110,9 +125,20 @@
   padding: 0 20px;
 }
 
+.review-div li div h5 {
+  text-align: center;
+  font-size: 16px;
+}
 
 .review-div li p {
   margin: 20px 0;
+}
+
+.review-div li .buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0;
 }
 
 .review-div li button {
@@ -124,6 +150,7 @@
   font-family: Maven Pro;
   border-radius: 4px;
   cursor: pointer;
+  width: 130px;
 }
 @media screen and (max-width: 880px) {
   .container {
@@ -142,5 +169,29 @@
   }
   .info h2 {
     text-align: center;
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btns a,
+  .delete {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .btns a button {
+    width: 100%;
+  }
+
+  .review-div li .buttons {
+    flex-direction: column;
+  }
+
+  .review-div li button {
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
