@@ -30,3 +30,11 @@ hr {
   margin: 20px 0;
   width: 100%;
 }
+
+button {
+  transition: transform 350ms;
+}
+
+button:hover {
+  transform: translateY(-10px);
+}
