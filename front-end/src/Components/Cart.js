@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../Styles/Cart.css";
 
 const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
@@ -7,7 +7,7 @@ const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
   const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
   const [buy, setBuy] = useState(false);
-
+  let history = useHistory();
   const purchase = () => {
     setBuy((prevBuy) => !prevBuy);
   };
@@ -50,9 +50,7 @@ const Cart = ({ shoppingCart, deleteShoppingCartItem }) => {
         ) : (
           <ul>
             <h2>The cart is empty.</h2>
-            <Link to={"/games"}>
-              <button className="btn">Go back</button>
-            </Link>
+            <button className="btn" onClick={() => history.goBack()}>Go back</button>
           </ul>
         )}
         <div className="checkout">
