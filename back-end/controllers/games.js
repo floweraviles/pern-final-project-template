@@ -20,7 +20,7 @@ games.get("/", async (req, res) => {
 
 games.post("/", async (req, res) => {
   try {
-    req.body.box_image ||= "https://dummyimage.com/300x400/000/fff.png&text=No+Image"
+    req.body.box_image || (req.body.box_image = "https://dummyimage.com/300x400/000/fff.png&text=No+Image")
     const result = await createGame(req.body);
     if (checkGamesTypes(req.body)) {
       res.json({success: true, payload: result});
