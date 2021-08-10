@@ -22,7 +22,7 @@ function GameNewForm() {
       await axios.post(`${API}/games`, newGame);
       history.push(`/games`);
     } catch (error) {
-      return error;
+      return(error);
     }
   };
 
@@ -35,7 +35,7 @@ function GameNewForm() {
   };
 
   const handleNumChange = (e) => {
-    setGame({ ...game, [e.target.id]: Number(e.target.value) });
+    setGame({...game, [e.target.id]:Number(e.target.value) })
   };
 
   const handleSubmit = (e) => {
@@ -44,7 +44,6 @@ function GameNewForm() {
   };
 
   return (
-    <div className="box">
       <form className="game-edit-form" onSubmit={handleSubmit}>
         <label htmlFor="name">Game Name:</label>
         <input
@@ -57,25 +56,11 @@ function GameNewForm() {
         />
 
         <label htmlFor="console">Console:</label>
-        <input
-          id="console"
-          type="text"
-          value={game.console}
-          onChange={handleTextInput}
-          placeholder="Console Name"
-          required
-        />
+        <input id="console" type="text" value={game.console}onChange={handleTextInput} placeholder="Console Name" required />
 
         <label htmlFor="price">Price:</label>
-        <input
-          id="price"
-          type="number"
-          value={game.price}
-          onChange={handleNumChange}
-          placeholder="$$"
-          required
-        />
-
+        <input id="price" type="number" value={game.price}onChange={handleNumChange} placeholder="$$" required />
+ 
         <label htmlFor="release_date">Release Year:</label>
         <input
           id="release_date"
@@ -87,28 +72,14 @@ function GameNewForm() {
         />
 
         <label htmlFor="favorites">Favorites:</label>
-        <input
-          id="favorites"
-          type="checkbox"
-          checked={game.favorites}
-          onChange={handleCheckBox}
-        />
+        <input id="favorites" type="checkbox" checked={game.favorites} onChange={handleCheckBox} />
 
         <label htmlFor="box_image">Box Image:</label>
-        <input
-          id="box_image"
-          type="text"
-          value={game.box_image}
-          onChange={handleTextInput}
-          placeholder="http//:"
-        />
+        <input id="box_image" type="text" value={game.box_image} onChange={handleTextInput} placeholder="http//:" />
         <br />
         <button>Submit</button>
+
       </form>
-      <div className="presentation">
-        <img src="https://picsum.photos/400/500" alt="ramdon-art"/>
-      </div>
-    </div>
   );
 }
 export default withRouter(GameNewForm);
