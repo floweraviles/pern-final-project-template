@@ -31,10 +31,6 @@
   cursor: pointer;
 }
 
-.Index .title button:hover {
-  text-decoration: underline;
-}
-
 .game-index img {
   width: 100%;
   max-width: 600px;
